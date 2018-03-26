@@ -69,12 +69,12 @@
 			
 			             
 					<div class="normalInput">
-						<input type="text" value="" name="username" id="account" class='username' maxlength='32' placeholder='账号' autocomplete='off'/>
+						<input type="text" value="{{old('username')}}" name="username" id="account" class='username' maxlength='32' placeholder='账号' autocomplete='off'/>
 						<!-- <span class='grayTip'>@flyme.cn</span> -->
 					</div>
 				<div class='lineWrap normalInput'>
-					<input type="text" value="" name="password" id="password" maxlength="16" autocomplete="off"/>
-					<input type="password" value="" name="password" id="password1" maxlength="16"  placeholder='密码' style='display:none' autocomplete="off"/>
+					<input type="text"  name="password" id="password" maxlength="16" autocomplete="off"/>
+					<input type="password"  name="password" id="password1" maxlength="16"  placeholder='密码' style='display:none' autocomplete="off"/>
 					<a id="pwdBtn" class="pwdBtnShow noselect" onselectstart="return false">
 						<i class="i_icon"></i>
 					</a>
@@ -83,10 +83,10 @@
                
 			
 				<div class='lineWrap normalInput'>
-					<input type="text" value="" name="phone" id="phone" placeholder='手机号码' maxlength='11' autocomplete='off'/>
+					<input type="text" value="{{old('phone')}}" name="phone" id="phone" placeholder='手机号码' maxlength='11' autocomplete='off'/>
 				</div>
 				<div class='lineWrap normalInput'>
-					<input type="text" value="" name="email" id="email" placeholder='安全邮箱' maxlength='32' autocomplete='off'/>
+					<input type="text" value="{{old('email')}}" name="email" id="email" placeholder='安全邮箱' maxlength='32' autocomplete='off'/>
 				</div>
 				<div class='clear'></div>
 				<div class="normalInput">

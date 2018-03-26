@@ -8,6 +8,9 @@ use App\Http\Requests;
 use Hash;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GetRegisterRequest;
+use App\Model\User;
+use App\Model\PasswordResets;
+use App\Http\Requests\PasswordResets as PasswordResetsRequest;
 
 
 class RegisterController extends Controller
@@ -51,34 +54,22 @@ class RegisterController extends Controller
     */
     public function doRegister(GetRegisterRequest $request)
     {   
-        // $a  =$request->all();
-        // var_dump($a);die;
-    	// 获取数据
-    	$res = $request->only('username','email','phone');
-
-        if(session('vcode') != $request->input('vcode')){
-
-            return back()->with('error','验证码有误!');
-
-
-        }
-
-        // var_dump(session('vcode'));
-        // var_dump($request->input('vcode'));die;
-    	// 对密码加密
-    	$res['password'] = Hash::make($request->input('password'));
-    	// 状态
-    	$res['status'] = '0';
-         // dd($res);
-        $res['pic'] ="/uploads/userpic/1.jpg";
-    	$row = DB::table('meizu_user')->insert($res);
-         // var_dump($row);die;
-    	// 判断
-    	if($row){
-    		return redirect('/index/gologin');
-    	} else{
-    		return back()->with('error','注册失败');
-    	}
+        //检测验证码是否正确 防止恶意注册
+        if(session('vcode') != $request->input('vcode')) return back()->with('error','验证码有误!');
+        // 获取数据
+        $data = $request->only('username','email','phone');
+        // 对密码加密
+        $data['password'] = Hash::make($request->only('password')['password']);
+        //密码不加密
+        // $data['password'] = $request->only('password')['password'];
+        // 状态
+        $data['status'] = '1';
+        $data['pic'] ="/uploads/userpic/1.jpg";
+        // $row = DB::table('meizu_user')->insert($res);
+        $row = User::insert($data);
+        // 判断
+        if(!$row) return back()->with('error','注册失败');
+        return redirect('/index/gologin');
     }
 	
 	 /**
@@ -97,28 +88,39 @@ class RegisterController extends Controller
     {
 
         $email = $request->input('email');
-
         // 判断
-        $res = DB::table('meizu_user')->where('email',$email)->first();
-        // $id=$res->id;
-        // var_dump($id);die;
-        // dd($res);
-
-        if(empty($res)) {
-
-            dd('注册邮箱不存在');
-
+        // $res = DB::table('meizu_user')->where('email',$email)->first();
+        $res = User::where('email',$email)->first();
+        if(empty($res)) return back()->with('error','邮箱不存在！');
+        //生成token
+        $time = time();
+        $rand = rand(1000000000,$time);
+        $token = md5($rand.$email.$time);
+        // dd($token.$email);
+        //开启事务
+        \DB::beginTransaction();
+        //写入数据库
+        $datatime = date("Y-m-d H:i:s",time());
+        $data = ['username'=>$res['username'],'token'=>$token, 'created_at'=>$datatime];
+        // dd($data);
+        $resOne = PasswordResets::insert($data);
+        if(!$resOne)  {
+            \DB::rollBack(); 
+            return back()->with('error','1邮件发送失败!');die;
         }
-
-        \Mail::send('emails.yanzheng', ['id'=>$res->id], function ($m) use ($res) {
-           $m->from('zk1824@sina.com', '魅族商城');
-
-           $m->to($res->email,$res->username)->subject('魅族商城---修改密码');
-        });
-
+        //发送邮件
+        $resTwo = \Mail::send('emails.yanzheng', ['token'=>$token], function ($m) use ($res) {
+                       $m->from('zheye@lnmp.space', '魅族商城');
+                       $m->to($res['email'],$res['username'])->subject('修改密码');
+                    });
+        if(!$resTwo){
+            \DB::rollBack();
+            return back()->with('error','2邮件发送失败!');die;
+        }
+        //发送成功
+        \DB::commit();
         // 提示成功的信息
-
-            return view('emails/youxiang');
+        return view('emails/youxiang');
             
 
     }
@@ -128,39 +130,37 @@ class RegisterController extends Controller
     *   重置密码
     */
 
-    public  function find(Request $request)
+    public  function resets(Request $request,$token)
     {
-		
-        $id = $request->input('id');
+	
 
-        return view('emails.findform',['row'=>$id]);
+        return view('emails.findform',['token'=>$token]);
     }
 
     /**
     *   操作重置密码
     */
 
-    public function update(Request $request)
+    public function update(PasswordResetsRequest $request)
     {
         // 检测
-
-
-        // 获取id
-        $id = $request->input('id');
-
-        // 获取密码
-        $password['password'] = Hash::make($request->input('password'));
-
-        $res = DB::table('meizu_user')->where('id',$id)->update($password);
-
-        if($res) {
-
-            return redirect('/index/gologin')->with('success','重置成功');
-
-        }else {
-
-            return back()->with('error','重置失败');
-
-        }
+        $where= $request->only('token');
+        $res = PasswordResets::where($where)->orderBy('created_at','desc')->first();
+        // dd($res);
+        if(!$res) return redirect('/index/forget')->withError('违规操作！');
+        $timeNow = time();
+        $timeEnd = strtotime($res['created_at'])+3600;
+        if($timeNow > $timeEnd) return redirect('/index/forget')->withError('连接过期，请重新发送邮件！');
+        //修改密码
+        //获取修改密码用户信息
+        $resOne = PasswordResets::where($where)->first();
+        //获取密码
+        $password = Hash::make($request->only('password')['password']);
+        $data = ['password'=>$password];
+        $resTwo = User::where('username',$resOne['username'])->update($data);
+        if(!$resTwo) return back()->with('error','修改密码失败，请重新尝试');
+        PasswordResets::where($where)->delete();
+        return redirect('/index/gologin')->with('error','重置成功');
+        
     }
 }

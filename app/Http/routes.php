@@ -65,7 +65,7 @@ Route::post('/index/doRegister','RegisterController@doRegister');
 Route::get('/index/forget','RegisterController@forget');
 Route::post('/index/doForget','RegisterController@doForget');
 //
-Route::get('/index/find','RegisterController@find');
+Route::get('/index/resets/{token?}','RegisterController@resets')->name('index.resets');
 Route::post('/index/updatePassword','RegisterController@update');
 Route::post('/index/youxiang','RegisterController@youxiang');
 

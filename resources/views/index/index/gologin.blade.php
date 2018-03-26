@@ -55,7 +55,7 @@
        
 		<form id=""  action="/index/doGologin" method="post" enctype="application/x-www-form-urlencoded">
 			<div class="number">
-				<a class="linkABlue" id="toAccountLogin" href="/go/javascript:void(0);">用户登录</a>
+				<a class="linkABlue" id="toAccountLogin" href="javascript:void(0);">用户登录</a>
 				<!-- <span class="register-line"></span>
 				<a class="linkAGray" id="toVCodeLogin" href="/go/javascript:void(0);">验证码登录</a> -->
 			</div>
@@ -64,13 +64,20 @@
                 {{session('error')}}
             </div>
             @endif
+            @if ($errors->any())
+                <div class="mws-form-message error">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 			<div class='normalInput fieldInput'>
-                
-                    <input type="text" name="username" id="username"  maxlength="50" placeholder="账号" autocomplete='off' />
-              
+                    <input type="text" value = "{{ old('username') }}" name="username" id="username"  maxlength="50" placeholder="账号" autocomplete='off' />
                </div>
 			<div class='normalInput fieldInput'>
-				<input type="password" value="" name="password" id="password" maxlength='16' placeholder='密码' autocomplete='off'/>
+				<input type="password"  name="password" id="password" maxlength='16' placeholder='密码' autocomplete='off'/>
 			</div>
 			
 			<div class='rememberField'>

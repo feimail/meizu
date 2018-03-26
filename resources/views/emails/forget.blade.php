@@ -42,27 +42,28 @@
     </div>
 </div>
 		<div class='middle'>
-		              @if (count($errors) > 0)
-		   <div class="mws-form-message error">
-		        <ul>
-		            @foreach ($errors->all() as $error)
-		                <li>{{ $error }}</li>
-		            @endforeach
-		        </ul>
-		    </div>
-		@endif
-
-		 @if(session('error'))
-            <div class="mws-form-message error">
-                {{session('error')}}
-            </div>
-            @endif
+		
 			<form id="register-form" name="register-form" action="/index/doForget" method="post">
 				<div class="number">
 					<!-- <a class="linkAGray" id="toTelRegister" href="/go//register">账户注册</a> -->
 					<!-- <span class="register-line"></span> -->
 					<a class="linkABlue" id="toNameR egister" href>密码找回</a>
 				</div>
+				@if (count($errors) > 0)
+				   <div class="mws-form-message error">
+				        <ul>
+				            @foreach ($errors->all() as $error)
+				                <li>{{ $error }}</li>
+				            @endforeach
+				        </ul>
+				    </div>
+				@endif
+
+				@if(session('error'))
+					<div class="mws-form-message error">
+					{{session('error')}}
+					</div>
+				@endif
 				<div class='lineWrap normalInput'>
 					<input type="text" value="" name="email" id="email" placeholder='邮箱' maxlength='32' autocomplete='off'/>
 				</div>

@@ -42,44 +42,44 @@
     </div>
 </div>
 		<div class='middle'>
-		              @if (count($errors) > 0)
-		   <div class="mws-form-message error">
-		        <ul>
-		            @foreach ($errors->all() as $error)
-		                <li>{{ $error }}</li>
-		            @endforeach
-		        </ul>
-		    </div>
-		@endif
-
-		 @if(session('error'))
-            <div class="mws-form-message error">
-                {{session('error')}}
-            </div>
-            @endif
+			
 			<form id="register-form" name="register-form" action="/index/updatePassword " method="post">
 				<div class="number">
 					<!-- <a class="linkAGray" id="toTelRegister" href="/go//register">账户注册</a> -->
 					<!-- <span class="register-line"></span> -->
 					<a class="linkABlue" id="toNameR egister" href>重置密码</a>
 				</div>
+				@if (count($errors) > 0)
+				   <div class="mws-form-message error">
+				        <ul>
+				            @foreach ($errors->all() as $error)
+				                <li>{{ $error }}</li>
+				            @endforeach
+				        </ul>
+				    </div>
+				@endif
+
+				@if(session('error'))
+					<div class="mws-form-message error">
+					    {{session('error')}}
+					</div>
+				@endif
 				<div class='lineWrap normalInput'>
-					<input type="password" value="" name="password"  placeholder='密码' maxlength='32' autocomplete='off'/>
+					<input type="password"  name="password"  placeholder='密码' maxlength='32' autocomplete='off'/>
 				</div>
 				<div class='lineWrap normalInput'>
-					<input type="password" value="" name="repassword"  placeholder='确认密码' maxlength='32' autocomplete='off'/>
+					<input type="password" name="repassword"  placeholder='确认密码' maxlength='32' autocomplete='off'/>
 				</div>
 				
 				<div id='rememberField' class="rememberField">
 					<span><input name="acceptFlyme" id="acceptFlyme" type="checkbox" value="1" checked='checked'></span>
 					<label class='pointer' for="acceptFlyme" tabindex="0">我已阅读并接受</label>
-					<a href="/go//serviceAgreement" target='_blank' class="linkABlue">《Flyme服务协议条款》</a>
+					<a href="/go/serviceAgreement" target='_blank' class="linkABlue">《Flyme服务协议条款》</a>
 				</div>
-				<input type="hidden" name="vCodeTypeValue" value="16" />
-				<input type="hidden" name='id' value="{{$row}}">
+				<input type="hidden" name="token" value="{{$token}}" />
 				{{ csrf_field()}}
 				<span id='acceptError' class='otherError' style='display:none;'>请确认已阅读并同意Flyme服务协议条款</span>
-				<input type="submit"   value="确认" id="zhuce">
+				<button id="zhuce"> 确认修改 </button>
 			</form>
 		<!-- <input type="hidden" name="appuri" value="" id="appuri" />
 		<input type="hidden" name="useruri" value="" id="useruri" />
