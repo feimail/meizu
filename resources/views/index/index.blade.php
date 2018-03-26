@@ -1,0 +1,1 @@
+@extends('./layup.index')
