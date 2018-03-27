@@ -25,10 +25,10 @@
     width:300px;
     }
     .mws-form-message.success {
-    background-color: #ffcbca;
+    background-color: green;
     /*background-image: url(/go/images/message-error.png);*/
-    border-color: green;
-    color: #9b4449;
+    /*border-color: #eb979b;*/
+    color: white;
     width:300px;
     }
 	</style>
