@@ -38,7 +38,7 @@
 	<div id="trigger">
 		<a href="/index/gologin" id="toLogin" class='linkAGray'>登录</a>
 		<span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-		<a href="/go/https://i.flyme.cn/register" id="toRegister" class='linkAGray'>注册</a>
+		<a href="/index/register" id="toRegister" class='linkAGray'>注册</a>
     </div>
 </div>
 		<div class='middle'>
