@@ -36,8 +36,10 @@ class IndexLoginController extends Controller
         // dd($res);
         //判断用户是否存在
         if(!$res) return back()->with('error','用户不存在');
+        // $a = $data['password'].$res['salts'];
+        // dd($a);
         // 加密密码的检测
-        if(!Hash::check($data['password'],$res->password)) return back()->with(['error'=>'密码输入有误']);
+        if(!Hash::check($data['password'].$res['salts'],$res['password'])) return back()->with(['error'=>'密码输入有误']);
         //不加密密码检测判断
         // if($data['password'] != $res['password']) return back()->with('error','密码输入有误');
         // 把用户的id存入session
