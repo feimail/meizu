@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Session;
 
 class GetRegisterRequest extends Request
 {
@@ -20,12 +21,12 @@ class GetRegisterRequest extends Request
     public function rules()
     {
         return [
-            'username'=>'required|unique:meizu_user|regex:/^\w{8,16}$/',
-            'password'=>'required|regex:/^\w{6,12}$/',
+            'username'=>array('regex:/^[a-zA-Z0-9]{6,16}$/','required','unique:meizu_user'),
+            'password'=>array('required','regex:/^\w{6,12}$/'),
             // 'repassword1'=>'required|same:password',
-            'email'=>'required|email',
+            'email'=>'required|email|unique:meizu_user,email',
             'phone' => 'required|regex:/^1\d{10}$/',
-            // 'vcode'=>'required|same:vcode',
+            'vcode'=>"required",
         ];
     }
 
@@ -41,10 +42,10 @@ class GetRegisterRequest extends Request
             // 'repassword.same' => '两次密码不一致',
             'email.required' => '邮箱不可为空',
             'email.email' => '邮箱格式不正确',
+            'email.unique' => '邮箱已经注册过了',
             'phone.required' => '手机号码不能为空',     
             'phone.regex' => '手机号码不正确', 
-             // 'vcode.required' => '验证码不能为空',      
-             // 'vcode.same' => '验证码不正确',      
+             'vcode.required' => '验证码不能为空',      
         ];
     }
 }
