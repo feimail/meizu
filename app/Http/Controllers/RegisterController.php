@@ -89,19 +89,32 @@ class RegisterController extends Controller
     */
     public function doForget(Request $request)
     {
-
         $email = $request->input('email');
         // 判断
         // $res = DB::table('meizu_user')->where('email',$email)->first();
         $res = User::where('email',$email)->first();
         if(empty($res)) return back()->with('error','邮箱不存在！');
+        //判断一个小时之内是否发过邮件
+        $sendEmail = PasswordResets::where('email',$email)->orderBy('created_at','desc')->first(); 
+        $timeNow = time();
+        if($sendEmail){
+            $timeEnd = strtotime($sendEmail['created_at'])+3600;
+            // dd($timeNow.'+'.$timeEnd);
+            if($timeNow < $timeEnd) {
+                return back()->withError('温馨提醒：一小时内已发过链接到您邮箱，请不要重复操作');
+            }
+            //如果token超过一小时没有使用，删除重新发送
+            if($timeNow > $timeEnd) {
+                $res = PasswordResets::where('token',$sendEmail['token'])->delete();
+                // dd($res);
+            }
+         }   
         //生成token
-        $time = time();
-        $rand = rand(1000000000,$time);
-        $token = md5($rand.$email.$time);
+        $rand = rand(1000000000,$timeNow);
+        $token = md5($rand.$email.$timeNow);
         //写入数据库
-        $datatime = date("Y-m-d H:i:s",time());
-        $data = ['username'=>$res['username'],'token'=>$token, 'created_at'=>$datatime];
+        $datatime = date("Y-m-d H:i:s",$timeNow);
+        $data = ['username'=>$res['username'],'token'=>$token, 'created_at'=>$datatime,'email'=>$email];
         //开启事务 数据表必须是InnoDB格式，一开始是MyISAM事务一直不起做用，这点需要特别注意！！！
         DB::beginTransaction();
         $resOne = PasswordResets::insert($data);
@@ -133,8 +146,6 @@ class RegisterController extends Controller
 
     public  function resets(Request $request,$token)
     {
-	
-
         return view('emails.findform',['token'=>$token]);
     }
 
