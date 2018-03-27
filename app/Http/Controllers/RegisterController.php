@@ -15,6 +15,12 @@ use App\Http\Requests\PasswordResets as PasswordResetsRequest;
 
 class RegisterController extends Controller
 {	
+
+    public $fields = [
+                      'username' => '',
+                      'email'    => '',
+                      'phone'    => '',
+                      ];
 	/**
 	*	前台注册
 	*/
@@ -57,19 +63,24 @@ class RegisterController extends Controller
         // dd($request['username']);
         //检测验证码是否正确 防止恶意注册
         if(session('vcode') != $request->input('vcode')) return back()->with(['error'=>'验证码有误!','username'=>$request['username']]);
+        $user = new User;
         // 获取数据
         $data = $request->only('username','email','phone');
+        foreach ($this->fields as $key => $value) {
+            $user->$key = $data[$key];
+        }
         // 对密码加密
         $salts = getPasswordRandStr();
-        $data['salts']  =  $salts;
-        $data['password'] = Hash::make($request->only('password')['password'].$salts);
+        $user->salts  =  $salts;
+        $user->password = Hash::make($request->only('password')['password'].$salts);
         //密码不加密
         // $data['password'] = $request->only('password')['password'];
         // 状态s
-        $data['status'] = '1';
-        $data['pic'] ="/uploads/userpic/1.jpg";
+        $user->status = '1';
+        $user->pic    = "/uploads/userpic/1.jpg";
         // $row = DB::table('meizu_user')->insert($res);
-        $row = User::insert($data);
+        // dd($user);
+        $row = $user->save();
         // 判断
         if(!$row) return back()->with('error','注册失败');
         return redirect('/index/gologin')->with('success','注册成功，请登录！');
@@ -170,7 +181,7 @@ class RegisterController extends Controller
         $salts = getPasswordRandStr();
         $password = Hash::make($request->only('password')['password'].$salts);
         $data = ['password'=>$password,'salts'=>$salts];
-        $resTwo = User::where('username',$resOne['username'])->update($data);
+        $resTwo = User::where('email',$resOne['email'])->update($data);
         if(!$resTwo) return back()->with('error','修改密码失败，请重新尝试');
         PasswordResets::where($where)->delete();
         return redirect('/index/gologin')->with('success','重置成功');
