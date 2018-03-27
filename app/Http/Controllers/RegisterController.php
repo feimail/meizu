@@ -99,17 +99,15 @@ class RegisterController extends Controller
         $time = time();
         $rand = rand(1000000000,$time);
         $token = md5($rand.$email.$time);
-        // dd($token.$email);
-        //开启事务
-        \DB::beginTransaction();
         //写入数据库
         $datatime = date("Y-m-d H:i:s",time());
         $data = ['username'=>$res['username'],'token'=>$token, 'created_at'=>$datatime];
-        // dd($data);
+        //开启事务 数据表必须是InnoDB格式，一开始是MyISAM事务一直不起做用，这点需要特别注意！！！
+        DB::beginTransaction();
         $resOne = PasswordResets::insert($data);
         if(!$resOne)  {
-            \DB::rollBack(); 
-            return back()->with('error','1邮件发送失败!');die;
+            DB::rollBack(); 
+            return back()->with('error','邮件发送失败!');die;
         }
         //发送邮件
         $resTwo = \Mail::send('emails.yanzheng', ['token'=>$token], function ($m) use ($res) {
@@ -117,11 +115,11 @@ class RegisterController extends Controller
                        $m->to($res['email'],$res['username'])->subject('修改密码');
                     });
         if(!$resTwo){
-            \DB::rollBack();
-            return back()->with('error','2邮件发送失败!');die;
+            DB::rollBack();
+            return back()->with('error','邮件发送失败!!');die;
         }
         //发送成功
-        \DB::commit();
+        DB::commit();
         // 提示成功的信息
         return view('emails/youxiang');
             
@@ -164,7 +162,7 @@ class RegisterController extends Controller
         $resTwo = User::where('username',$resOne['username'])->update($data);
         if(!$resTwo) return back()->with('error','修改密码失败，请重新尝试');
         PasswordResets::where($where)->delete();
-        return redirect('/index/gologin')->with('error','重置成功');
+        return redirect('/index/gologin')->with('success','重置成功');
         
     }
 }
