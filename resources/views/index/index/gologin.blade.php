@@ -1,8 +1,3 @@
-
-
-
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -28,78 +23,76 @@
     border-color: #eb979b;
     color: #9b4449;
     width:300px;
-  }
-
-
+    }
+    .mws-form-message.success {
+    background-color: #ffcbca;
+    /*background-image: url(/go/images/message-error.png);*/
+    border-color: green;
+    color: #9b4449;
+    width:300px;
+    }
 	</style>
-	<!--阿里pt.js-->
-	<!-- <script src="/go/js4/pt.js" data-app="ewogICJjb21tb24iOiB7CiAgICAiYXBwa2V5IjogIlJIVjIiLAogICAgInVzZUN1c3RvbVRva2VuIjogZmFsc2UsCiAgICAic2NlbmUiOiAiTG9naW4iLAogICAgImZvcmVpZ24iOiAwCiAgfSwKICAidWFiIjogewogICAgIkV4VGFyZ2V0IjogWwogICAgICAicHdkaWQiCiAgICBdLAogICAgInVzZUN1c3RvbVRva2VuIjogZmFsc2UsCiAgICAiRm9ybUlkIjogIm15X2Zvcm0iLAogICAgIkxvZ1ZhbCI6ICJ1YV9sb2ciLAogICAgIlNlbmRJbnRlcnZhbCI6IDIwLAogICAgIlNlbmRNZXRob2QiOiAzLAogICAgIk1heE1DTG9nIjogMTUwLAogICAgIk1heEtTTG9nIjogMTUwLAogICAgIk1heE1QTG9nIjogMTUwLAogICAgIk1heEdQTG9nIjogNSwKICAgICJNYXhUQ0xvZyI6IDE1MCwKICAgICJHUEludGVydmFsIjogNTAsCiAgICAiTVBJbnRlcnZhbCI6IDUwLAogICAgIk1heEZvY3VzTG9nIjogMTUwLAogICAgImlzU2VuZEVycm9yIjogMSwKICAgICJJbWdVcmwiOiAiLy9jZmQuYWxpeXVuLmNvbS9jb2xsZWN0b3IvYW5hbHl6ZS5qc29ucCIsCiAgICAiR2V0QXR0cnMiOiBbCiAgICAgICJocmVmIiwKICAgICAgInNyYyIKICAgIF0sCiAgICAiRmxhZyI6IDE5NjU1NjcKICB9LAogICJ1bWlkIjogewogICAgInRpbWVvdXQiOiAzMDAwLAogICAgInRpbWVzdGFtcCI6ICIkIXRpbWVzdGFtcCIsCiAgICAidG9rZW4iOiAiJCF0b2tlbiIsCiAgICAic2VydmljZVVybCI6ICJodHRwczovL3ludWYuYWxpcGF5LmNvbS9zZXJ2aWNlL3VtLmpzb24iLAogICAgImFwcE5hbWUiOiAiJCFhcHBOYW1lIiwKICAgICJjb250YWluZXJzIjogewogICAgICAiZmxhc2giOiAiY29udGFpbmVyIiwKICAgICAgImRjcCI6ICJjb250YWluZXIiCiAgICB9CiAgfQp9"></script> -->
 </head>
-
-
 <body>
 	<div id='content' class="content">
-		
+		<div class=ucSimpleHeader id="header">
+			<a href="" class='meizuLogo'><i class='i_icon'></i></a>
+			<div id="trigger">
+				<a href="/index/gologin" id="toLogin" class='linkAGray'>登录</a>
+				<span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+				<a href="/index/register" id="toRegister" class='linkAGray'>注册</a>
+		    </div>
+		</div> 
+		<center>
+	        <div>
+				<form id=""  action="/index/doGologin" method="post" enctype="application/x-www-form-urlencoded">
+					<div class="number">
+						<a class="linkABlue" id="toAccountLogin" href="javascript:void(0);">用户登录</a>
+						<!-- <span class="register-line"></span>
+						<a class="linkAGray" id="toVCodeLogin" href="/go/javascript:void(0);">验证码登录</a> -->
+					</div>
+					@if(session('error'))
+				        <div class="mws-form-message error">
+				            {{session('error')}}
+				        </div>
+				    @endif
+				    @if(session('success'))
+				        <div class="mws-form-message success">
+				            {{session('success')}}
+				        </div>
+				    @endif
+				    @if ($errors->any())
+				        <div class="mws-form-message error">
+				            <ul>
+				                @foreach ($errors->all() as $error)
+				                    <li>{{ $error }}</li>
+				                @endforeach
+				            </ul>
+				        </div>
+				    @endif
+					<div class='normalInput fieldInput'>
+				            <input type="text" value = "{{ old('username') }}" name="username" id="username"  maxlength="50" placeholder="账号" autocomplete='off' />
+				       </div>
+					<div class='normalInput fieldInput'>
+						<input type="password"  name="password" id="password" maxlength='16' placeholder='密码' autocomplete='off'/>
+					</div>
+					
+					<div class='rememberField'>
+					 <span><input name="remember" id="remember" type="checkbox" value="1"/></span>
+						<label for="remember" tabindex="0">记住登录状态</label>
+						<a id="#" href="/index/forget"  class='linkABlue rememberFieldForA'>忘记密码?</a>
+						<!-- <a id="qrCode_login" href="/go/javascript:void(0);" title="手机扫描二维码登录">手机扫描二维码登录</a> -->
+						
+					 </div>
+					{{ csrf_field()}}
 
-
-<div class=ucSimpleHeader id="header">
-	<a href="" class='meizuLogo'><i class='i_icon'></i></a>
-	<div id="trigger">
-		<a href="/index/gologin" id="toLogin" class='linkAGray'>登录</a>
-		<span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-		<a href="/index/register" id="toRegister" class='linkAGray'>注册</a>
-    </div>
-</div> 
-    <center>
-      <div>
-       
-		<form id=""  action="/index/doGologin" method="post" enctype="application/x-www-form-urlencoded">
-			<div class="number">
-				<a class="linkABlue" id="toAccountLogin" href="javascript:void(0);">用户登录</a>
-				<!-- <span class="register-line"></span>
-				<a class="linkAGray" id="toVCodeLogin" href="/go/javascript:void(0);">验证码登录</a> -->
-			</div>
-			 @if(session('error'))
-            <div class="mws-form-message error">
-                {{session('error')}}
-            </div>
-            @endif
-            @if ($errors->any())
-                <div class="mws-form-message error">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-			<div class='normalInput fieldInput'>
-                    <input type="text" value = "{{ old('username') }}" name="username" id="username"  maxlength="50" placeholder="账号" autocomplete='off' />
-               </div>
-			<div class='normalInput fieldInput'>
-				<input type="password"  name="password" id="password" maxlength='16' placeholder='密码' autocomplete='off'/>
-			</div>
-			
-			<div class='rememberField'>
-			 <span><input name="remember" id="remember" type="checkbox" value="1"/></span>
-				<label for="remember" tabindex="0">记住登录状态</label>
-				<a id="#" href="/index/forget"  class='linkABlue rememberFieldForA'>忘记密码?</a>
-				<!-- <a id="qrCode_login" href="/go/javascript:void(0);" title="手机扫描二维码登录">手机扫描二维码登录</a> -->
-				
-			 </div>
-			{{ csrf_field()}}
-
-			
-			<input type="submit"   value="登录" id="zhuce">
-			
-		</form>
-	</div>
-	 </center>
+					
+					<input type="submit"   value="登录" id="zhuce">
+					
+				</form>
+		  </div>
+	     </center>
 	
-
-
-
-
 <div id='flymeFooter' class='footerWrap'>
 	<div class='footerInner'>
 		<div class='footer-layer1'>
