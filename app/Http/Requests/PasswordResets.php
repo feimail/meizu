@@ -25,7 +25,7 @@ class PasswordResets extends Request
     {
         return [
             'password' => array('regex:/^[a-zA-Z0-9]{6,16}$/','required'),
-            'repassword' => 'required ',
+            'repassword' => 'required | same:password',
         ];
     }
 
@@ -34,8 +34,8 @@ class PasswordResets extends Request
         return [
             'password.required'   => '密码不能为空',
             'password.regex'      => '请填写6-16为字母数字，区分大小写',
-            // 'repassword.required' => '确认密码不能为空',
-            // 'repassword.same'     => '两次密码不一样',
+            'repassword.required' => '确认密码不能为空',
+            'repassword.same'     => '两次密码不一样',
         ];
     }
 }
