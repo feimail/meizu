@@ -109,4 +109,21 @@
 		$res = DB::table('meizu_city')->where('id', $id)->first();
 		return $res->name;
 	}
+
+
+	/**
+	*获取密码附加随机字符
+	*
+	*/
+	 function getPasswordRandStr($length = 8)
+	{
+		$getPasswordRandStr = '';
+		$str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz';
+			
+		for ($i=0; $i < $length  ; $i++) { 
+			$getPasswordRandStr .=  $str[rand(0,strlen($str)-1)];
+		}
+
+		return $getPasswordRandStr;
+	}
 	
