@@ -55,7 +55,7 @@ class RegisterController extends Controller
     public function doRegister(GetRegisterRequest $request)
     {   
         // dd($request['username']);
-        检测验证码是否正确 防止恶意注册
+        //检测验证码是否正确 防止恶意注册
         if(session('vcode') != $request->input('vcode')) return back()->with(['error'=>'验证码有误!','username'=>$request['username']]);
         // 获取数据
         $data = $request->only('username','email','phone');
