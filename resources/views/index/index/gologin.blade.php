@@ -99,7 +99,7 @@
 			<div class='footer-innerLink'>
 				<a href="#" target="_blank" title="关于魅族">关于魅族</a>
 				<img class="foot-line" src="/go/picture4/space.gif">
-				<a href="/go/http://hr.meizu.com" target="_blank" title="工作机会">工作机会</a>
+				<a href="http://hr.meizu.com" target="_blank" title="工作机会">工作机会</a>
 				<img class="foot-line" src="/go/picture4/space.gif">
 				<a href="#" target="_blank" title="联系我们">联系我们</a>
 				<img class="foot-line" src="/go/picture4/space.gif">
@@ -118,7 +118,7 @@
 				<a class='footer-sinaMblog' href="#" target="_blank"><i class='i_icon'></i></a>
 				
 				<a id='footer-weChat' class='footer-weChat' href="/go/javascript:void(0);" target="_blank"><i class='i_icon'></i></a>
-				<a class='footer-qzone' href="/go/http://user.qzone.qq.com/2762957059" target="_blank"><i class='i_icon'></i></a>
+				<a class='footer-qzone' href="http://user.qzone.qq.com/2762957059" target="_blank"><i class='i_icon'></i></a>
 			</div>
 			<div id="globalContainer" class="footer-language_menu">
 				<a href="/go/javascript:void(0)" title="简体中文" class="checked">简体中文</a>
@@ -146,9 +146,9 @@
 		<div id='flymeCopyright' class="copyrightWrap">
 			<div class="copyrightInner">
 				<span>©2016 Meizu Telecom Equipment Co., Ltd. All rights reserved.</span>
-				<a href="/go/http://www.miitbeian.gov.cn/" class='linkAGray' target="_blank">备案号: 粤ICP备13003602号-4</a>
-				<a href="/go/http://www3.res.meizu.com/static/cn/widget/footer/images/icp2_b2dcb54.jpg" class='linkAGray' target="_blank">经营许可证编号: 粤B2-20130198</a>
-				<a target="_blank" href="/go/http://www2.res.meizu.com/zh_cn/images/common/com_licence.jpg" hidefocus="true" class="linkAGray">营业执照</a>
+				<a href="http://www.miitbeian.gov.cn/" class='linkAGray' target="_blank">备案号: 粤ICP备13003602号-4</a>
+				<a href="http://www3.res.meizu.com/static/cn/widget/footer/images/icp2_b2dcb54.jpg" class='linkAGray' target="_blank">经营许可证编号: 粤B2-20130198</a>
+				<a target="_blank" href="http://www2.res.meizu.com/zh_cn/images/common/com_licence.jpg" hidefocus="true" class="linkAGray">营业执照</a>
 			</div>
 		</div>
 	</div>

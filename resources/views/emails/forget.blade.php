@@ -34,7 +34,7 @@
 
 
 <div class=ucSimpleHeader id="header">
-	<a href="/go/http://www.meizu.com" class='meizuLogo'><i class='i_icon'></i></a>
+	<a href="http://www.meizu.com" class='meizuLogo'><i class='i_icon'></i></a>
 	<div id="trigger">
 		<a href="/index/gologin" id="toLogin" class='linkAGray'>登录</a>
 		<span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
@@ -89,13 +89,13 @@
 	<div class='footerInner'>
 		<div class='footer-layer1'>
 			<div class='footer-innerLink'>
-				<a href="/go/http://www.meizu.com/about.html" target="_blank" title="关于魅族">关于魅族</a>
+				<a href="http://www.meizu.com/about.html" target="_blank" title="关于魅族">关于魅族</a>
 				<img class="foot-line" src="/go/picture5/space.gif">
-				<a href="/go/http://hr.meizu.com" target="_blank" title="工作机会">工作机会</a>
+				<a href="http://hr.meizu.com" target="_blank" title="工作机会">工作机会</a>
 				<img class="foot-line" src="/go/picture5/space.gif">
-				<a href="/go/http://www.meizu.com/contact.html" target="_blank" title="联系我们">联系我们</a>
+				<a href="http://www.meizu.com/contact.html" target="_blank" title="联系我们">联系我们</a>
 				<img class="foot-line" src="/go/picture5/space.gif">
-				<a href="/go/http://www.meizu.com/legalStatement.html" target="_blank" title="法律声明">法律声明</a>
+				<a href="http://www.meizu.com/legalStatement.html" target="_blank" title="法律声明">法律声明</a>
 				<img class="foot-line" src="/go/picture5/space.gif">
 				<a href="/go/javascript:void(0);" id="globalName" class="footer-language" title="简体中文">简体中文&nbsp;&nbsp;&nbsp;</a>
 			</div>
@@ -105,10 +105,10 @@
 				<a id='service-online' class='service-online' href="/go/javascript:void(0);" title="在线客服">在线客服</a>
 			</div>
 			<div class='footer-outerLink'>
-				<a class='footer-sinaMblog' href="/go/http://weibo.com/meizumobile" target="_blank"><i class='i_icon'></i></a>
+				<a class='footer-sinaMblog' href="http://weibo.com/meizumobile" target="_blank"><i class='i_icon'></i></a>
 				
 				<a id='footer-weChat' class='footer-weChat' href="/go/javascript:void(0);" target="_blank"><i class='i_icon'></i></a>
-				<a class='footer-qzone' href="/go/http://user.qzone.qq.com/2762957059" target="_blank"><i class='i_icon'></i></a>
+				<a class='footer-qzone' href="http://user.qzone.qq.com/2762957059" target="_blank"><i class='i_icon'></i></a>
 			</div>
 			<div id="globalContainer" class="footer-language_menu">
 				<a href="/go/javascript:void(0)" id="i18n-link" title="English" class="ClobalItem">English</a>
@@ -131,9 +131,9 @@
 		<div id='flymeCopyright' class="copyrightWrap">
 			<div class="copyrightInner">
 				<span>©2016 Meizu Telecom Equipment Co., Ltd. All rights reserved.</span>
-				<a href="/go/http://www.miitbeian.gov.cn/" class='linkAGray' target="_blank">备案号: 粤ICP备13003602号-4</a>
-				<a href="/go/http://www3.res.meizu.com/static/cn/widget/footer/images/icp2_b2dcb54.jpg" class='linkAGray' target="_blank">经营许可证编号: 粤B2-20130198</a>
-				<a target="_blank" href="/go/http://www2.res.meizu.com/zh_cn/images/common/com_licence.jpg" hidefocus="true" class="linkAGray">营业执照</a>
+				<a href="http://www.miitbeian.gov.cn/" class='linkAGray' target="_blank">备案号: 粤ICP备13003602号-4</a>
+				<a href="http://www3.res.meizu.com/static/cn/widget/footer/images/icp2_b2dcb54.jpg" class='linkAGray' target="_blank">经营许可证编号: 粤B2-20130198</a>
+				<a target="_blank" href="http://www2.res.meizu.com/zh_cn/images/common/com_licence.jpg" hidefocus="true" class="linkAGray">营业执照</a>
 			</div>
 		</div>
 	</div>

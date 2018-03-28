@@ -50,7 +50,7 @@
         <div class="topbar-right">
             <ul class="topbar-info">
                <li class="topbar-info-msg" id="MzTopbarMsg" style="display: list-item;">
-              <a class="topbar-link" href="http://www.meizu.com/index/trade/index" target="_blank">我的购物车</a>
+              <a class="topbar-link" href="/index/trade/index" target="_blank">我的购物车</a>
               <span class="msg-tag" id="MzMsgTag" style="display: inline;"></span>
             </li>
                 <li>
@@ -72,7 +72,7 @@
                 </li>
                  @else
                 <li class="topbar-info-member" >
-                    <a class="topbar-link" href="http://www.meizu.com/index/ucenter/edit" target="_blank">
+                    <a class="topbar-link" href="/index/ucenter/edit" target="_blank">
                         <span id="MzUserName" class="site-member-name">{{ session('username')}}</span>的商城
                     </a>
                     <div class="site-member-items">
@@ -218,23 +218,23 @@
                                     <li class="menu-product-more">
                                         <div class="menu-more-links">
                                             <ul>
-                                                    <li class="menu-more-row"><a href="/go/http://lists.meizu.com/page/list?categoryid=79&rc=sdsd" target="_blank"><img
+                                                    <li class="menu-more-row"><a href="http://lists.meizu.com/page/list?categoryid=79&rc=sdsd" target="_blank"><img
                                                             src="/go/picture/1467696166-40112_1.png" class="menu-more-img" width="28"
                                                             height="28"/>耳机 / 音箱</a>
                                                     </li>
-                                                    <li class="menu-more-row"><a href="/go/http://lists.meizu.com/page/list?categoryid=80&rc=sd" target="_blank"><img
+                                                    <li class="menu-more-row"><a href="http://lists.meizu.com/page/list?categoryid=80&rc=sd" target="_blank"><img
                                                             src="/go/picture/1467696197-95413_1.png" class="menu-more-img" width="28"
                                                             height="28"/>路由器 / 移动电源</a>
                                                     </li>
-                                                    <li class="menu-more-row"><a href="/go/http://lists.meizu.com/page/list?categoryid=81&rc=sd" target="_blank"><img
+                                                    <li class="menu-more-row"><a href="http://lists.meizu.com/page/list?categoryid=81&rc=sd" target="_blank"><img
                                                             src="/go/picture/1467696220-57637_1.png" class="menu-more-img" width="28"
                                                             height="28"/>保护套 / 后盖 / 贴膜</a>
                                                     </li>
-                                                    <li class="menu-more-row"><a href="/go/http://lists.meizu.com/page/list?categoryid=82&rc=sd" target="_blank"><img
+                                                    <li class="menu-more-row"><a href="http://lists.meizu.com/page/list?categoryid=82&rc=sd" target="_blank"><img
                                                             src="/go/picture/1467696242-24236_1.png" class="menu-more-img" width="28"
                                                             height="28"/>数据线 / 电源适配器</a>
                                                     </li>
-                                                    <li class="menu-more-row"><a href="/go/http://lists.meizu.com/page/list?categoryid=83&rc=sd" target="_blank"><img
+                                                    <li class="menu-more-row"><a href="http://lists.meizu.com/page/list?categoryid=83&rc=sd" target="_blank"><img
                                                             src="/go/picture/1467705893-97644_1.png" class="menu-more-img" width="28"
                                                             height="28"/>周边配件</a>
                                                     </li>
@@ -277,7 +277,7 @@
         </div>
 
         <div class="header-cart" id="MzHeaderCart">
-            <a href="/go/http://store.meizu.com/cart" target="_blank">
+            <a href="http://store.meizu.com/cart" target="_blank">
                 <div class="header-cart-wrap">
                     <span class="header-cart-icon"></span>
                     购物车

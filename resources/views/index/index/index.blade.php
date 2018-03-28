@@ -74,7 +74,7 @@
                 <li class="" data-bgcolor="#FFFFFF" style="background: #FFFFFF;">
                     <a class=""
                        style="width: 1920px; margin-left: -960px;"
-                       href="/go/http://detail.meizu.com/item/meilan_max.html?rc=lb1" target="_blank" data-mtype="store_index_ba_1"
+                       href="http://detail.meizu.com/item/meilan_max.html?rc=lb1" target="_blank" data-mtype="store_index_ba_1"
                        data-mdesc="第1屏banner">
                         <img src="/go/LBpicture/1.jpg" width="1920" height="480"/>
                     </a>
@@ -82,7 +82,7 @@
                 <li class="" data-bgcolor="#137cf9" style="background: #137cf9;">
                     <a class=""
                        style="width: 1920px; margin-left: -960px;"
-                       href="/go/http://hd.meizu.com/activity/meizu.html?rc=lb2" target="_blank" data-mtype="store_index_ba_2"
+                       href="http://hd.meizu.com/activity/meizu.html?rc=lb2" target="_blank" data-mtype="store_index_ba_2"
                        data-mdesc="第2屏banner">
                         <img src="/go/LBpicture/2.jpg" width="1920" height="480"/>
                     </a>
@@ -90,7 +90,7 @@
                 <li class="home-slider-box" data-bgcolor="#040000" style="background: #040000;">
                     <a class=""
                        style="width: 1920px; margin-left: -960px;"
-                       href="/go/http://hd.meizu.com/fans/misfit.html?rc=lb3" target="_blank" data-mtype="store_index_ba_3"
+                       href="http://hd.meizu.com/fans/misfit.html?rc=lb3" target="_blank" data-mtype="store_index_ba_3"
                        data-mdesc="第3屏banner">
                         <img src="/go/LBpicture/3.png" width="1920" height="480"/>
                     </a>
@@ -98,7 +98,7 @@
                 <li class="home-slider-box" data-bgcolor="#121212" style="background: #121212;">
                     <a class=""
                        style="width: 1920px; margin-left: -960px;"
-                       href="/go/http://detail.meizu.com/item/meizu_pro6.html?rc=lb4" target="_blank" data-mtype="store_index_ba_4"
+                       href="http://detail.meizu.com/item/meizu_pro6.html?rc=lb4" target="_blank" data-mtype="store_index_ba_4"
                        data-mdesc="第4屏banner">
                         <img src="/go/LBpicture/4.png" width="1920" height="480"/>
                     </a>
@@ -106,7 +106,7 @@
                 <li class="home-slider-box" data-bgcolor="#dedede" style="background: #dedede;">
                     <a class=""
                        style="width: 1240px; margin-left: -620px;"
-                       href="/go/http://detail.meizu.com/item/shoulder_bag.html?rc=lb5" target="_blank" data-mtype="store_index_ba_5"
+                       href="http://detail.meizu.com/item/shoulder_bag.html?rc=lb5" target="_blank" data-mtype="store_index_ba_5"
                        data-mdesc="第5屏banner">
                         <img src="/go/LBpicture/5.jpg" width="1240" height="480"/>
                     </a>
@@ -126,7 +126,7 @@
 <div class="home-mzad">
   <div class="home-box home-service">
       <div class="service-module-2">
-        <a href="/go/http://store.meizu.com/mformy/index" target="_blank"  data-mtype="store_index_gd_1" data-mdesc="固定资源位中第1个">
+        <a href="http://store.meizu.com/mformy/index" target="_blank"  data-mtype="store_index_gd_1" data-mdesc="固定资源位中第1个">
           <span class="home-service-icon service-icon-mentry">
             <img src="/go/picture/1450855246-61162_1.png" width="24" height="24" alt="M码通道"  />
           </span>
@@ -134,7 +134,7 @@
         </a>
       </div>
       <div class="service-module-2">
-        <a href="/go/http://mcycle.meizu.com/" target="_blank"  data-mtype="store_index_gd_2" data-mdesc="固定资源位中第2个">
+        <a href="http://mcycle.meizu.com/" target="_blank"  data-mtype="store_index_gd_2" data-mdesc="固定资源位中第2个">
           <span class="home-service-icon service-icon-mentry">
             <img src="/go/picture/1450855279-64872_1.png" width="24" height="24" alt="以旧换新"  />
           </span>
@@ -142,7 +142,7 @@
         </a>
       </div>
       <div class="service-module-2">
-        <a href="/go/http://www.meizu.com/products/insu.html" target="_blank"  data-mtype="store_index_gd_3" data-mdesc="固定资源位中第3个">
+        <a href="http://www.meizu.com/products/insu.html" target="_blank"  data-mtype="store_index_gd_3" data-mdesc="固定资源位中第3个">
           <span class="home-service-icon service-icon-mentry">
             <img src="/go/picture/1450855198-58056_1.png" width="24" height="24" alt="魅族意外保"  />
           </span>
@@ -150,7 +150,7 @@
         </a>
       </div>
       <div class="service-module-2">
-        <a href="/go/http://me.meizu.com/member/repo/index" target="_blank"  data-mtype="store_index_gd_4" data-mdesc="固定资源位中第4个">
+        <a href="http://me.meizu.com/member/repo/index" target="_blank"  data-mtype="store_index_gd_4" data-mdesc="固定资源位中第4个">
           <span class="home-service-icon service-icon-mentry">
             <img src="/go/picture/1451960447-93534_1.png" width="24" height="24" alt="回购单查询"  />
           </span>
@@ -160,22 +160,22 @@
   </div>
 
     <div class="home-box home-ad-box">
-      <a href="/go/http://detail.meizu.com/item/meilan_note3.html?rc=xj" target="_blank" data-mtype="store_index_xj_1" data-mdesc="小焦中第1个">
+      <a href="http://detail.meizu.com/item/meilan_note3.html?rc=xj" target="_blank" data-mtype="store_index_xj_1" data-mdesc="小焦中第1个">
         <img src="/go/picture/cix_s1fqce6aswazaabc7nnhsfk874_1.jpg" width="244" height="140" />
       </a>
     </div>
     <div class="home-box home-ad-box">
-      <a href="/go/http://detail.meizu.com/item/meilanU20.html?rc=xj" target="_blank" data-mtype="store_index_xj_2" data-mdesc="小焦中第2个">
+      <a href="http://detail.meizu.com/item/meilanU20.html?rc=xj" target="_blank" data-mtype="store_index_xj_2" data-mdesc="小焦中第2个">
         <img src="/go/picture/cix_s1ftqbqaigcpaabcn90ze-8433_1.jpg" width="244" height="140" />
       </a>
     </div>
     <div class="home-box home-ad-box">
-      <a href="/go/http://detail.meizu.com/item/meizu_ep51.html?rc=xj" target="_blank" data-mtype="store_index_xj_3" data-mdesc="小焦中第3个">
+      <a href="http://detail.meizu.com/item/meizu_ep51.html?rc=xj" target="_blank" data-mtype="store_index_xj_3" data-mdesc="小焦中第3个">
         <img src="/go/picture/cix_s1fu-ruae2rmaaata9ir-ra921_1.jpg" width="244" height="140" />
       </a>
     </div>
     <div class="home-box home-ad-box">
-      <a href="/go/http://detail.meizu.com/item/JBL_JBLGO.html?rc=xj" target="_blank" data-mtype="store_index_xj_4" data-mdesc="小焦中第4个">
+      <a href="http://detail.meizu.com/item/JBL_JBLGO.html?rc=xj" target="_blank" data-mtype="store_index_xj_4" data-mdesc="小焦中第4个">
         <img src="/go/picture/cix_s1fu-zgauif9aabfpb-serq787_1.jpg" width="244" height="140" />
       </a>
     </div>
@@ -229,7 +229,7 @@
         </div>
 
 <div class="site-gotop">
- <a class="gotop-suggest" title="建议反馈" href="/go/http://me.meizu.com/member/advice/index" target="_blank"></a>
+ <a class="gotop-suggest" title="建议反馈" href="http://me.meizu.com/member/advice/index" target="_blank"></a>
  <div class="gotop-arrow" title="回到顶部"></div>
 </div>
 
@@ -237,7 +237,7 @@
             <div class="mzcontainer">
                 <div class="home-floor-ad">
                     <img src="/go/picture/cnqojvfqcz-aj5mraadrfqxv-ko945_1.jpg"/>
-                        <a href="/go/http://detail.meizu.com/item/meizu_pro5.html?rc=yl" class="hot-point"
+                        <a href="http://detail.meizu.com/item/meizu_pro5.html?rc=yl" class="hot-point"
                            style="width: 1240px; height: 120px; left: 0px; top: 0px;"
                            target="_blank" title="PRO5"
                            data-mtype="store_index_yl_1_1"
@@ -297,7 +297,7 @@
             <div class="mzcontainer">
                 <div class="home-floor-ad">
                     <img src="/go/picture/cix_s1fpw1aafxauaadym1od-ea908_1.jpg"/>
-                        <a href="/go/http://detail.meizu.com/item/mpower_m8e.html?rc=yl" class="hot-point"
+                        <a href="http://detail.meizu.com/item/mpower_m8e.html?rc=yl" class="hot-point"
                            style="width: 1240px; height: 120px; left: 0px; top: 0px;"
                            target="_blank" title="移动电源标准版"
                            data-mtype="store_index_yl_2_1"
@@ -312,13 +312,13 @@
                 <div class="home-panel-topbar">
                     <h2 class="home-panel-title">精选配件</h2>
                     <h6 class="home-panel-subtitle">
-                                <a href="/go/http://lists.meizu.com/page/list?categoryid=79&rc=lc" target="_blank"
+                                <a href="http://lists.meizu.com/page/list?categoryid=79&rc=lc" target="_blank"
                                    data-mtype="store_index_kwd_2_2"
                                    data-mdesc="第2个楼层上方小导航第2个按钮	">耳机音箱</a>
-                                <a href="/go/http://lists.meizu.com/page/list?categoryid=80&rc=lc" target="_blank"
+                                <a href="http://lists.meizu.com/page/list?categoryid=80&rc=lc" target="_blank"
                                    data-mtype="store_index_kwd_2_2"
                                    data-mdesc="第2个楼层上方小导航第2个按钮	">路由器/移动电源</a>
-                                <a href="/go/http://lists.meizu.com/page/list?categoryid=83&rc=lc" target="_blank"
+                                <a href="http://lists.meizu.com/page/list?categoryid=83&rc=lc" target="_blank"
                                    data-mtype="store_index_kwd_2_2"
                                    data-mdesc="第2个楼层上方小导航第2个按钮	">移动存储</a>
                     </h6>
@@ -361,7 +361,7 @@
             <div class="mzcontainer">
                 <div class="home-floor-ad">
                     <img src="/go/picture/cix_s1fu_3waek8iaafnxzfcqdu297_1.jpg"/>
-                        <a href="/go/http://detail.meizu.com/item/GE62_6QD_1077XCN.html?rc=yl" class="hot-point"
+                        <a href="http://detail.meizu.com/item/GE62_6QD_1077XCN.html?rc=yl" class="hot-point"
                            style="width: 1240px; height: 120px; left: 0px; top: 0px;"
                            target="_blank" title="微星GE62 6QD-1077XCN游戏笔记本"
                            data-mtype="store_index_yl_3_1"
@@ -376,16 +376,16 @@
                 <div class="home-panel-topbar">
                     <h2 class="home-panel-title">智能硬件</h2>
                     <h6 class="home-panel-subtitle">
-                                <a href="/go/http://lists.meizu.com/page/list?categoryid=88&rc=lc" target="_blank"
+                                <a href="http://lists.meizu.com/page/list?categoryid=88&rc=lc" target="_blank"
                                    data-mtype="store_index_kwd_3_2"
                                    data-mdesc="第3个楼层上方小导航第2个按钮	">智能家居</a>
-                                <a href="/go/http://lists.meizu.com/page/list?categoryid=89&rc=lc" target="_blank"
+                                <a href="http://lists.meizu.com/page/list?categoryid=89&rc=lc" target="_blank"
                                    data-mtype="store_index_kwd_3_2"
                                    data-mdesc="第3个楼层上方小导航第2个按钮	">智能出行</a>
-                                <a href="/go/http://lists.meizu.com/page/list?categoryid=90&rc=lc" target="_blank"
+                                <a href="http://lists.meizu.com/page/list?categoryid=90&rc=lc" target="_blank"
                                    data-mtype="store_index_kwd_3_2"
                                    data-mdesc="第3个楼层上方小导航第2个按钮	">智能娱乐</a>
-                                <a href="/go/http://lists.meizu.com/page/list?categoryid=87&rc=lc" target="_blank"
+                                <a href="http://lists.meizu.com/page/list?categoryid=87&rc=lc" target="_blank"
                                    data-mtype="store_index_kwd_3_2"
                                    data-mdesc="第3个楼层上方小导航第2个按钮	">智能健康</a>
                     </h6>
@@ -429,7 +429,7 @@
             <div class="mzcontainer">
                 <div class="home-floor-ad">
                     <img src="/go/picture/cix_s1fqcz-atlzdaadvzrc9u0y403_1.jpg"/>
-                        <a href="/go/http://detail.meizu.com/item/meilan_metal.html?rc=yl" class="hot-point"
+                        <a href="http://detail.meizu.com/item/meilan_metal.html?rc=yl" class="hot-point"
                            style="width: 1240px; height: 120px; left: 0px; top: 0px;"
                            target="_blank" title="魅蓝 metal"
                            data-mtype="store_index_yl_4_1"
@@ -444,10 +444,10 @@
                 <div class="home-panel-topbar">
                     <h2 class="home-panel-title">手机周边</h2>
                     <h6 class="home-panel-subtitle">
-                                <a href="/go/http://lists.meizu.com/page/list?categoryid=81&rc=lc" target="_blank"
+                                <a href="http://lists.meizu.com/page/list?categoryid=81&rc=lc" target="_blank"
                                    data-mtype="store_index_kwd_4_2"
                                    data-mdesc="第4个楼层上方小导航第2个按钮	">保护套/后盖/贴膜</a>
-                                <a href="/go/http://lists.meizu.com/page/list?categoryid=82&rc=lc" target="_blank"
+                                <a href="http://lists.meizu.com/page/list?categoryid=82&rc=lc" target="_blank"
                                    data-mtype="store_index_kwd_4_2"
                                    data-mdesc="第4个楼层上方小导航第2个按钮	">数据线/电源适配器</a>
                     </h6>

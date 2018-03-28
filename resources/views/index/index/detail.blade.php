@@ -270,7 +270,7 @@
                                                     @endif
                                                 @endforeach
                                                     <!-- <li>
-                                                        <a href="/go/http://detail.meizu.com/item/meilan_note3"
+                                                        <a href="http://detail.meizu.com/item/meilan_note3"
                                                            target="_blank">
                                                             <img src="/go/picture3/1459826197-26324.png@80x80.jpg" width="32" height="32"
                                                                  alt="">魅蓝note3 799元起
