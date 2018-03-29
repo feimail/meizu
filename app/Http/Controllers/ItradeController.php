@@ -12,7 +12,7 @@ class ItradeController extends Controller
     public function postInsert(Request $request)
     {
 
-          //获取数据
+        //获取数据
         $res = $request->except('_token');
         // $res =$request->all();
         if(!$res['web']) {
@@ -34,7 +34,7 @@ class ItradeController extends Controller
         
         // var_dump(session('cart')[1]['id']);die();
         // var_dump(session('cart')) ;
-       if (!empty(session('cart'))){
+        if (!empty(session('cart'))){
            foreach (session('cart') as $k => $v)
             {
             // echo $v;
@@ -48,9 +48,9 @@ class ItradeController extends Controller
                 $request->session()->push('cart',$res);
             }
             } 
-       } else {
+        } else {
             $request->session()->push('cart',$res);
-       }
+        }
 
              //友联
            $youlian=DB::table('meizu_link')->where('status',1)->get();
@@ -69,10 +69,10 @@ class ItradeController extends Controller
            
         //显示模板  加入购车成功的模板
         // var_dump(session('cart'));
-        } else {
+         } else {
             $id = $res['id'];
         
-       if (!empty(session('cart'))){
+        if (!empty(session('cart'))){
            foreach (session('cart') as $k => $v)
             {
             // echo $v;
@@ -86,9 +86,9 @@ class ItradeController extends Controller
                 $request->session()->push('cart',$res);
             }
             } 
-       } else {
+        } else {
             $request->session()->push('cart',$res);
-       }
+        }
 
              //友联
             $youlian=DB::table('meizu_link')->where('status',1)->get();
@@ -102,15 +102,8 @@ class ItradeController extends Controller
             $rea7 = DB::table('meizu_goods')->whereIn('id', [37, 38,39,40,41])
                     ->get();
             $rea9 = DB::table('meizu_goods')->where('pid','2')->limit(6)->get();
-
-        //显示模板  加入购车成功的模板
-        // var_dump(session('cart'));
         }
-        // $res = array('color'=>'red','num'=>1,'size'=>'xl','price'=>'120','id'=>1);
-     
-        
         return view('/index/trade/insert',['rea2'=>$rea1,'rea4'=>$rea3,'rea6'=>$rea5,'rea8'=>$rea7,'rea10'=>$rea9,'youlian'=>$youlian,'logo'=>$logo]);
-
     }
 
     public function getIndex(Request $request)
