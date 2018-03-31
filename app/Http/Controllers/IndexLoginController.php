@@ -41,6 +41,26 @@ class IndexLoginController extends Controller
         // if($data['password'] != $res['password']) return back()->with('error','密码输入有误');
         // 把用户的id存入session
         session(['uid'=>$res->id,'username'=>$res->username]);
+
+        //添加非登录下购物车商品到数据库
+        if(session('cart')){
+            $userId = session('uid');
+            $dataCart =  [];
+            $sessionCart = session('cart');
+            // dd($sessionCart);
+            // foreach($sessionCart as $k=>$v){
+            //     $dataCart[$k] = $v;
+            //     $dataCart[$k]['good_id'] = $v['id'];
+            //     $dataCart[$k]['buyer_id'] = $userId;
+
+            // }
+            //将session中的商品加入登录帐号中
+            // $cart = new CartModel;
+            // dd(); 
+            session(['cart' => null]);
+            // dd($dataCart);
+        }
+        
         // 如果用户名和密码相同 跳转后台首页
         return redirect('/index');
      }
@@ -49,7 +69,8 @@ class IndexLoginController extends Controller
     public function indexLogout()
     {
         // 清空session数据
-        session(['uid'=>null,'username'=>null]);
+        session()->flush();
+        session(['uid'=>null,'username'=>null,'cart'=>null]);
         return redirect('/index');
     }
 }

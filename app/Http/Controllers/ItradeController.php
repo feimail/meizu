@@ -16,7 +16,9 @@ class ItradeController extends Controller
     */
     public function postInsert(Request $request)
     {
-        dd(session('cart'));
+       
+        // session()->flush();
+        // dd(session('cart'));
 
         //获取数据
         $res = $request->except('_token');
@@ -39,6 +41,7 @@ class ItradeController extends Controller
         // dd(session('uid'));
         //如果登录商品加入购物车
         if(isset($userId)){
+            dd(1);
             //number数量
             if(!$res['number']){
                 $res['number']="1";
@@ -73,59 +76,30 @@ class ItradeController extends Controller
                 }
         }else{
             if(!$res['number']) {
-                $res['number']="1";
-                $id = $res['id'];
-                if (!empty(session('cart'))){
-                        foreach (session('cart') as $k => $v){
-                            if($v['id'] == $id){
-                                 $res=session('cart');
-                                 $res[$k]['number']++;
-                                 session(['cart'=>$res]);
-                            }else{
-                                // var_dump($v['id']);
-                                $request->session()->push('cart',$res);
-                            }
-                } 
-                } else {
-                  $request->session()->push('cart',$res);
-                }
+               $res['number']= "1";
+            } 
+            $id = $res['id'];
+            $goodRes = GoodsModel::where('id',$res['id'])->first();
+            $res['price'] = $goodRes['price'];
+            $res['img'] = $goodRes['img'];
+                    if (!empty(session('cart'))){
+                            foreach (session('cart') as $k => $v){
+                                if($v['id'] == $id){
+                                     $cartRes = session('cart');
+                                     $number = session('cart')[$k]['number'];
+                                     $number = intval($number) + intval($res['number']);
+                                     $res['number'] = $number;
+                                     $cartRes[$k] = $res;
+                                     session(['cart'=>$cartRes]);
+                                     // dd(session('cart'));
 
-                //友联
-                $youlian=DB::table('meizu_link')->where('status',1)->get();
-                // 网站的logo
-                $logo = DB::table('meizu_webconf')->first();
-
-                $resa = DB::table('meizu_cate')->where('status','1')->get();
-
-                $rea1 = DB::table('meizu_goods')->where('pid','75')->get();
-                $rea3 = DB::table('meizu_goods')->where('pid','76')->get();
-                $rea5 = DB::table('meizu_goods')->where('pid','77')->get();
-                // $rea7 = DB::table('meizu_goods')->where('pid','77')->get();
-                $rea7 = DB::table('meizu_goods')->whereIn('id', [37, 38,39,40,41])->get();
-                $rea9 = DB::table('meizu_goods')->where('pid','2')->limit(6)->get();
-            //显示模板  加入购车成功的模板
-            } else {
-                $id = $res['id'];
-            
-                if (!empty(session('cart'))){
-                   foreach (session('cart') as $k => $v){
-                        // echo $v;
-                        if($v['id'] == $id){
-                             $res=session('cart');
-                             $res[$k]['number']++;
-                             session(['cart'=>$res]);
-                        }else{
-                           
-                            $request->session()->push('cart',$res);
-                        }
-                    } 
-                } else {
-                    $request->session()->push('cart',$res);
-                }
-
-                
-            }
-
+                                }else{
+                                    $request->session()->push('cart',$res);
+                                }
+                            } 
+                    } else {
+                      $request->session()->push('cart',$res);
+                    }
         }    
          //友联
         $youlian=DB::table('meizu_link')->where('status',1)->get();
@@ -154,6 +128,7 @@ class ItradeController extends Controller
             } 
             $res = [];
             $res = session('cart');
+            // dd($res);
             foreach ($res as $k => $v) {
                 $res[$k]['info'] = DB::table('meizu_goods')->where('id',$v['id'])->first();
             }
