@@ -158,7 +158,11 @@
                 <td class="order-product-table-total">
                   <p class="order-product-price red">{{$v['number']*$v['info']->price}}</p></td>
                 <td class="order-product-table-express" rowspan="1">
-              <a href="/index/trade/delete?id={{$k}}">删除<a/>    
+                  @if(session('uid'))
+                  <a href="/index/trade/delete?id={{$v['good_id']}}">删除<a/> 
+                  @else
+                  <a href="/index/trade/delete?id={{$k}}">删除<a/>    
+                  @endif
                   <div class="order-product-arrival"></div>
                 </td>
               </tr>

@@ -139,6 +139,7 @@ class ItradeController extends Controller
             foreach ($res as $k => $v) {
                 $res[$k]['info'] = DB::table('meizu_goods')->where('id',$v['good_id'])->first();
             }
+            // dd($res);
         }
         return view('index/trade/trade',['res'=>$res]);
     }
@@ -146,12 +147,22 @@ class ItradeController extends Controller
 
     public function getDelete(Request $request)
     {
-    	$id = $request->input('id');
-    	// var_dump($id);
-    	$res=session('cart');
-        // var_dump($res[$id]);die;
-        unset($res[$id]);
-        session(['cart'=>$res]);
+        //获取商品id
+         $id = $request->input('id');
+        //判断是否登录
+        $userId = session('uid');
+        if(!$userId){
+           
+            // var_dump($id);
+            $res=session('cart');
+            // var_dump($res[$id]);die;
+            unset($res[$id]);
+            session(['cart'=>$res]);
+        }else{
+            $where = ["good_id"=>$id, 'buyer_id'=>$userId];
+            CartModel::where($where)->delete();
+        }
+    	
         return back();
 
     }
