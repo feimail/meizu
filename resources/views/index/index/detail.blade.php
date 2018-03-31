@@ -69,10 +69,6 @@
                                             src="{{$v}}" width="75" height="75"></a>
                                 </li>
                                 @endforeach
-                                <!-- <li >
-                                    <a data-mtype="store_de_tp_4" href="/go/#"><img
-                                            src="/go/picture3/1461570817-48222.png@120x120.jpg" width="75" height="75"></a>
-                                </li> -->
                         </ul>
                     </div>
                     <form action="/index/trade/insert" method="post">
@@ -117,12 +113,6 @@
                                                 @foreach($row['web'] as $k=>$v)
                                                 <a data-value="14:18238" data-mtype="store_de_sp_1_1"title="全网通公开版">{{$v}}</a>
                                                 @endforeach
-                                                <!-- <a data-value="14:18411"
-                                                   
-                                                   data-mtype="store_de_sp_1_2" href="/go/#"
-                                                   title="移动定制版">
-                                                        <span>移动定制版</span>
-                                                </a> -->
                                         </dd>
 
                                     </dl>
@@ -131,29 +121,8 @@
                                         <dd class="clearfix" id="color">
                                                 @foreach($row['color'] as $k=>$v)
                                                 <a data-value="3:11"
-                                                   class="vm-sale-img"data-mtype="" title="白色"><img src="/go/picture3/color.png" width="20" height="33"><span>{{$v}}</span></a>
+                                                   class="vm-sale-img"data-mtype= {{$v}}  title= {{$v}} ><img src="/go/picture3/color.png" width="20" height="33"><span>{{$v}}</span></a>
                                                 @endforeach
-                                                <!-- <a data-value="3:13"
-                                                   class="vm-sale-img"
-                                                   data-mtype="store_de_sp_2_2" href="/go/#"
-                                                   title="蓝色">
-                                                        <img src="/go/picture3/1461571229-79338.png@80x80.png" width="32" height="32">
-                                                        <span>蓝色</span>
-                                                </a> -->
-                                                <!-- <a data-value="3:18"
-                                                   class="vm-sale-img"
-                                                   data-mtype="store_de_sp_2_3" href="/go/#"
-                                                   title="灰色">
-                                                        <img src="/go/picture3/1461570510-84498.png@80x80.png" width="32" height="32">
-                                                        <span>灰色</span>
-                                                </a>
-                                                <a data-value="3:18796"
-                                                   class="vm-sale-img"
-                                                   data-mtype="store_de_sp_2_4" href="/go/#"
-                                                   title="水粉色">
-                                                        <img src="/go/picture3/1461570401-27999.png@80x80.png" width="32" height="32">
-                                                        <span>水粉色</span>
-                                                </a> -->
                                         </dd>
                                     </dl>
                                     <dl class="property-set-sale" data-property="机身内存">
@@ -163,27 +132,15 @@
                                                 @foreach($row['type'] as $k=>$v)
                                                 <a data-value="13:36" data-mtype="store_de_sp_3_1" title="16GB">{{$v}}</a>
                                                 @endforeach
-                                               <!--  <a data-value="13:37"
-                                                   
-                                                   data-mtype="store_de_sp_3_2" href="/go/#"
-                                                   title="32GB">
-                                                        <span>32GB</span>
-                                                </a> -->
                                         </dd>
                                     </dl>
                                     <dl class="property-set-sale" data-property="机身内存">
                                         <dt class="vm-metatit">套餐：</dt>
                                         <dd class="clearfix" id="taocan">
-                                                <!-- 获取内存 -->
-                                                @foreach($row['taocan'] as $k=>$v)
-                                                <a data-value="13:36" data-mtype="store_de_sp_3_1" title="16GB">{{$v}}</a>
-                                                @endforeach
-                                               <!--  <a data-value="13:37"
-                                                   
-                                                   data-mtype="store_de_sp_3_2" href="/go/#"
-                                                   title="32GB">
-                                                        <span>32GB</span>
-                                                </a> -->
+                                            <!-- 获取内存 -->
+                                            @foreach($row['taocan'] as $k=>$v)
+                                            <a data-value="13:36" data-mtype="store_de_sp_3_1" title="16GB">{{$v}}</a>
+                                            @endforeach
                                         </dd>
                                     </dl>
                             </div>
@@ -192,10 +149,8 @@
                                         <dt class="vm-metatit">支<span class="s-space"></span><span class="s-space"></span>持：
                                         </dt>
                                         <dd class="mod-bd" id="J_prodService">
-                                            
-                                            
-                                                <span><i class="icon icon-service"></i>顺丰包邮</span>
-                                                <span><i class="icon icon-service"></i>7天无理由退货</span>
+                                            <span><i class="icon icon-service"></i>顺丰包邮</span>
+                                            <span><i class="icon icon-service"></i>7天无理由退货</span>
                                         </dd>
                                     </dl>
                                 <dl class="property-service-provider clearfix">
@@ -269,13 +224,6 @@
                                                     </li>
                                                     @endif
                                                 @endforeach
-                                                    <!-- <li>
-                                                        <a href="http://detail.meizu.com/item/meilan_note3"
-                                                           target="_blank">
-                                                            <img src="/go/picture3/1459826197-26324.png@80x80.jpg" width="32" height="32"
-                                                                 alt="">魅蓝note3 799元起
-                                                        </a>
-                                                    </li> -->
                                             </ul>
                                         </dd>
                                     </dl>
@@ -572,12 +520,14 @@
             $('input[name="web"]').val(v);
         })
         //获取颜色
-        $('#color a ').click(function(){
+        $('#color a').click(function(){
             $(this).addClass('color');
             $(this).siblings().removeClass('color');
             //获取当前选中的值
-            var v =$('#color a span').html();
+            var v =$('#color .color').data('mtype');
+            // alert(v);
            $('input[name="color"]').val(v);
+           var color = $('input[name="color"]').val();
         })
         //获取内寸
         $('#type a').click(function(){
