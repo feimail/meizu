@@ -13,8 +13,8 @@ class DetailController extends Controller
     {  
          //友联
         $youlian=DB::table('meizu_link')->where('status',1)->get();
-         // 网站的logo
-           $logo = DB::table('meizu_webconf')->first();
+        // 网站的logo
+        $logo = DB::table('meizu_webconf')->first();
     	$id=$request->id;
     	$res=DB::table('meizu_goods')
     			->join('meizu_goods_detail','meizu_goods.id','=','meizu_goods_detail.goodsid')
@@ -54,7 +54,7 @@ class DetailController extends Controller
                 dd('获取id失败');
             }
         //声明数组
-            $data =[];
+        $data =[];
         foreach($history as $k=>$v) {
             $data[]=DB::table('meizu_goods')->where('id',$v)->first();
         }
@@ -62,61 +62,41 @@ class DetailController extends Controller
         //问题
         $ques =DB::table('meizu_goods_question')->where('goodsid',$id)->where('status',1)->get();
 
+        //获取顶级父类 
+        $resa = DB::table('meizu_cate')->where('status','1')->get();
+        //左侧分类的商品   
+        foreach($resa as $k=>$v){
 
-         //获取顶级父类 
-        
-            $resa = DB::table('meizu_cate')->where('status','1')->get();
+            $res2 = DB::table('meizu_goods')->where('pid',$v->id)->limit(10)->get();
 
-            // for($i=0;$i<count($res);$i++){
-
-                // $res2 = DB::table('meizu_goods')->where('pid',$res[$i]->id)->limit(10)->get();
-            //  $res[$i]->arr = $res2;
-            // }
-
-           //左侧分类的商品   
-            foreach($resa as $k=>$v){
-
-                $res2 = DB::table('meizu_goods')->where('pid',$v->id)->limit(10)->get();
-
-                $v->arr = $res2;
-                // foreach($res2  as $k=>$v){
-
-                //  $res3 = DB::table('meizu_goods')->where('pid',$v->id)->limit(1)->get();
-                //  $v->brr  = $res3;
-                }
-
-                
-            
-
+            $v->arr = $res2;
            
+        }
+        //导航栏的商品
+        $resl = DB::table('meizu_cate')->orWhere('status', '1')->where('id','=','75')->get();
 
-            //导航栏的商品
-             $resl = DB::table('meizu_cate')->orWhere('status', '1')->where('id','=','75')->get();
+        $rea1 = DB::table('meizu_goods')->where('pid','75')->get();
+        $rea3 = DB::table('meizu_goods')->where('pid','76')->get();
+        $rea5 = DB::table('meizu_goods')->where('pid','77')->get();
+        // $rea7 = DB::table('meizu_goods')->where('pid','77')->get();
+        $rea7 = DB::table('meizu_goods')->whereIn('id', [37, 38,39,40,41])
+            ->get();
+        $rea9 = DB::table('meizu_goods')->where('pid','2')->limit(6)->get();
 
-            $rea1 = DB::table('meizu_goods')->where('pid','75')->get();
-            $rea3 = DB::table('meizu_goods')->where('pid','76')->get();
-            $rea5 = DB::table('meizu_goods')->where('pid','77')->get();
-            // $rea7 = DB::table('meizu_goods')->where('pid','77')->get();
-            $rea7 = DB::table('meizu_goods')->whereIn('id', [37, 38,39,40,41])
-                    ->get();
-            $rea9 = DB::table('meizu_goods')->where('pid','2')->limit(6)->get();
-            
-            $users = DB::table('meizu_goods')
-                    ->whereIn('id', [1, 2, 3])
-                    ->get();
-        // var_dump(Session::get('history'));die;
-                    // dd($row);
+        $users = DB::table('meizu_goods')
+            ->whereIn('id', [1, 2, 3])
+            ->get();
+        
         return view('index/index/detail',['res'=>$res,'ques'=>$ques,'row'=>$row,'data'=>$data,
-                'rea2'=>$rea1,
-                'rea4'=>$rea3,
-                'rea6'=>$rea5,
-                'rea8'=>$rea7,
-                'rea10'=>$rea9,
-                'rowa'=>$resa,
-                'youlian'=>$youlian,
-                'logo'=>$logo
-
-                  ]);
+                                        'rea2'=>$rea1,
+                                        'rea4'=>$rea3,
+                                        'rea6'=>$rea5,
+                                        'rea8'=>$rea7,
+                                        'rea10'=>$rea9,
+                                        'rowa'=>$resa,
+                                        'youlian'=>$youlian,
+                                        'logo'=>$logo]
+                                        );
         }
         
     } 

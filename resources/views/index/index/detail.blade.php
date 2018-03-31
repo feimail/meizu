@@ -424,79 +424,6 @@
                                         </dd>
                                     </dl>
                                     @endforeach
-                                    <!-- <dl class="mod-item">
-                                        <dt class="vm-question">
-                                        {{$res->goodsname}} 的屏幕尺寸是多大？有哪几种颜色？
-                                        </dt>
-                                        <dd class="vm-answer">
-                                        {{$res->goodsname}} 配备一块 5 英寸 1280x720 分辨率屏幕，采用先进的 IPS 显示技术;此外，魅蓝 3 使用 GFF 全贴合技术，减少显示面板与 2.5D 玻璃板间折射反光，让屏幕看起来更加圆润通透. 魅蓝 3 在此前多彩的基础上，更新增了备受期待的金色。同时，精心调整的粉色更显水嫩，如马卡龙的香甜温馨。
-                                        </dd>
-                                    </dl>
-                                    <dl class="mod-item">
-                                        <dt class="vm-question">
-                                        {{$res->goodsname}} 是否支持指纹识别？
-                                        </dt>
-                                        <dd class="vm-answer">
-                                        {{$res->goodsname}} 不支持指纹识别。
-                                        </dd>
-                                    </dl>
-                                    <dl class="mod-item">
-                                        <dt class="vm-question">
-                                        {{$res->goodsname}} 屏幕采用什么工艺？
-                                        </dt>
-                                        <dd class="vm-answer">
-                                        2.5D 玻璃前面板不仅成就了魅蓝 3 视觉上的晶莹剔透，更收获了令人惊讶的顺滑手感。我们针对性地重新设计机身弧度，使其与 2.5D 玻璃圆满契合。精确至毫米级的内部重构，又凝练出魅蓝 3 令人讶异的纤巧机身。更为先进的镀膜和喷涂工艺，赋予了魅蓝 3 丝滑的细腻触感。如此，才可成就魅蓝 3 手感的全方位蜕变。一入手，便爱不释手。
-                                        </dd>
-                                    </dl>
-                                    <dl class="mod-item">
-                                        <dt class="vm-question">
-                                        {{$res->goodsname}} 是否支持 TF 扩展？
-                                        </dt>
-                                        <dd class="vm-answer">
-                                        {{$res->goodsname}} 支持 TF 扩展，最高支持 128GB。
-                                        </dd>
-                                    </dl>
-                                    <dl class="mod-item">
-                                        <dt class="vm-question">
-                                        {{$res->goodsname}} 支持的网络有哪些？是否具备 VoLTE 语音通话技术？
-                                        </dt>
-                                        <dd class="vm-answer">
-                                        魅蓝 3 全面支持国内移动、联通、电信三大运营商网络，两个卡槽都支持 4G 极速上网，不再区分主副卡。同时 VoLTE 也已来到魅蓝 3，通话接通缩短 90%，视频通话质量更是清晰十倍 ；另外，魅蓝 3 还新增高铁模式，可以有效降低高速运动过程中信号失真，修正网络卡顿和掉线，让你在高速行驶的高铁内也能稳定地上网，让旅途不再无聊。
-                                        </dd>
-                                    </dl>
-                                    <dl class="mod-item">
-                                        <dt class="vm-question">
-                                        {{$res->goodsname}} 的 CPU 是用什么处理器？
-                                        </dt>
-                                        <dd class="vm-answer">
-                                        {{$res->goodsname}} 采用八核 64 位处理器，使用高端 HPM 工艺，主频最高可达 1.5GHz，性能是上一代的整整 1.6 倍，同时，大小核的搭配让其更加节能。而 Mali-T860 GPU，图像处理能力较上一代提升 50%，配合 2GB/3GB 运行内存，eMMc5.0 极速闪存，魅蓝 3 绝不仅限于满足日常应用，即使是面对大型 3D 游戏也能轻快处理，流畅运行。
-                                        </dd>
-                                    </dl>
-                                    <dl class="mod-item">
-                                        <dt class="vm-question">
-                                        {{$res->goodsname}} 的运行内存是多少？
-                                        </dt>
-                                        <dd class="vm-answer">
-                                        {{$res->goodsname}} 16G 版本搭配 2G RAM，32G 版本搭配 3G RAM。
-                                        </dd>
-                                    </dl>
-                                    <dl class="mod-item">
-                                        <dt class="vm-question">
-                                        {{$res->goodsname}} 后置摄像头是多少像素？
-                                        </dt>
-                                        <dd class="vm-answer">
-                                        一款出色的相机，能够为你留下人生追忆的瞬间。魅蓝 3 正是为此而来。1300W 后置摄像头，是不放过任何细节的慧眼；快至 0.2s 的相位对焦 ，能抓住转瞬即逝的刹那；而遇到暗光时，双色温闪光灯在及时补充光线的同时，又能保证拍出的照片色彩准确。
-                                        </dd>
-                                    </dl>
-                                    <dl class="mod-item">
-                                        <dt class="vm-question">
-                                        {{$res->goodsname}} 的电池规格？
-                                        </dt>
-                                        <dd class="vm-answer">
-                                        {{$res->goodsname}} CPU 采用独特的 CorePilot™2.0 异构计算技术，可以根据应用场景，智能协调 8 核芯负载，高效利用性能的同时，让每一分电量都物尽所值。此外，魅蓝 3 搭载的 Flyme 5.1 power by YunOS 专门针对功耗进行了深度优化，2870mAh 大容量电池更是为虎添翼，赋予了魅蓝 3 非凡的续航表现，让你一整天使用足够有安全感。
-                                        </dd>
-                                    </dl> -->
-
                                     <div id="siteGotop" class="site-gotop" style="display: block;"><a target="_blank" href="/index/wenti?id={{$res->id}}" title="点我提问题(⊙o⊙)?" class="gotop-suggest"><img  width="80" height="80px" alt="" src="/go/images3/yiwen.gif"></a><div title="回到顶部" class="gotop-arrow"></div></div>
                             </div>
                         </div>
@@ -505,10 +432,6 @@
                 </div>
             </section>
         </main>
-
-            
-            
-
         <script type="text/javascript" src="/go/js3/jquery-1.8.3.min.js"></script>
         <script type="text/javascript">
         //网络类型
