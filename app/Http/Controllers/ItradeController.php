@@ -41,7 +41,7 @@ class ItradeController extends Controller
         // dd(session('uid'));
         //如果登录商品加入购物车
         if(isset($userId)){
-            dd(1);
+            // dd(1);
             //number数量
             if(!$res['number']){
                 $res['number']="1";
@@ -80,6 +80,7 @@ class ItradeController extends Controller
             } 
             $id = $res['id'];
             $goodRes = GoodsModel::where('id',$res['id'])->first();
+            $res['goodsname'] = $goodRes['goodsname'];
             $res['price'] = $goodRes['price'];
             $res['img'] = $goodRes['img'];
                     if (!empty(session('cart'))){
@@ -139,8 +140,9 @@ class ItradeController extends Controller
             foreach ($res as $k => $v) {
                 $res[$k]['info'] = DB::table('meizu_goods')->where('id',$v['good_id'])->first();
             }
-            // dd($res);
+            
         }
+        // dd($res);
         return view('index/trade/trade',['res'=>$res]);
     }
 
@@ -152,10 +154,7 @@ class ItradeController extends Controller
         //判断是否登录
         $userId = session('uid');
         if(!$userId){
-           
-            // var_dump($id);
             $res=session('cart');
-            // var_dump($res[$id]);die;
             unset($res[$id]);
             session(['cart'=>$res]);
         }else{
@@ -170,51 +169,65 @@ class ItradeController extends Controller
     public function postOrder(Request $request){
 
         // dd($request->all());
+        $userId = session('uid');
         //获取
-        if(empty(session('uid')))
+        if(empty($userId))
         {
         echo '<script>
                  alert("请登录后购买商品");
                  window.location.href="/index/gologin";
              </script>';
         } else {
-        $row = $request->except('_token');
-      
-        $r = $request->input('res');  
-        //筛选数据
-       
-        $r = $this->shaixuan($r);
-        
 
-        //显示模板
-        $res = [];
-        $res = session('cart');
-        foreach ($res as $k => $v) {
-           // var_dump($v['id']) ;die;
-            $res[$k]['info'] = DB::table('meizu_goods')->where('id',$v['id'])->first();
-        
+        $res = $request->except('_token');
+            if(!isset($res['cart_id'])){
+                echo '<script>
+                     alert("请选择购买的商品");
+                     window.location.href="index/trade/index";
+                 </script>';
+            } 
+        // dd($res);
+        $data = [];
+        foreach ($res['cart_id'] as $k1 => $v1) {
+            $data[$k1]['cart_id'] = $v1;
+            foreach ($res['number'] as $k2 => $v2) {
+            $data[$k2]['number'] = $v2;
         }
-
+            
+        }
+        
+        // dd($data);
+        //显示模板 67 48 
+        $cartRes = [];
+        $cartRes[0]['totalMoney'] = 0;
+        foreach ($data as $k3 => $v3) {
+            // dd($k3);
+            if(isset($data[$k3]['cart_id'])){
+                $cartRes[$k3] = CartModel::where('id',$data[$k3]['cart_id'])->first();
+                $cartRes[0]['totalMoney']  +=  ($data[$k3]['number'] * $cartRes[$k3]['price']);
+                $cartRes[$k3]['number']  = $data[$k3]['number']; 
+            }
+           
+        }
+        session(['carts'=>$cartRes]);
+      
+        // dd($cartRes);
+        // dd($cartRes);
+        // foreach ($res as $k => $v) {
+        //    // var_dump($v['id']) ;die;
+        //     $res[$k]['info'] = DB::table('meizu_goods')->where('id',$v['id'])->first();
+        // }
         $address = DB::table('meizu_user_address')->where('uid',session('uid'))->get();
-       // var_dump($address);
+
         return view('index/order/order',[
             // 'address'=>$address,
-            'res'=>$res,
+            'res'=>$cartRes,
             'request'=>$request,
-            'r'=>$r,
+            // 'r'=>$r,
             'address'=>$address
             ]); 
         }
         
     }
 
-    private function shaixuan($res)
-    {
-        foreach ($res as $key =>$value) {
-            if(empty($value['id'])) {
-                unset($res[$key]);
-            }
-        }
-        return $res;
-    }
 }
