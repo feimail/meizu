@@ -12,13 +12,31 @@ class IorderController extends Controller
     //
     public function postInsert(Request $request)
     {
-        $red = $request->except('_token','paytype');
-        
-        // var_dump($res);die;
-        // $request->session()->flush();
-        session(['cart'=>null]);
+        $userId = session('uid');
 
-        $row = DB::table('meizu_order')->insert($red);
+        //查询地址
+        $address = DB::table('meizu_user_address')->where('uid',$userId)->first();
+        $res = $request->except('_token','paytype');
+        $orderNumber = getOrderNumber();
+        $data = [];
+        foreach ($res['cart_id'] as $k => $v) {
+            // $data[$k]['cart_id'] = $v;
+            $data[$k]['ordernumber'] = $orderNumber;
+            $data[$k]['userid'] = $userId;
+            $data[$k]['address'] = $address->id;
+            $data[$k]['time'] = date('Y-m-d H:m:i',time());
+            $data[$k]['totalprice'] = $res['totalprice'][$k];
+            $data[$k]['price'] = $res['price'][$k];
+            $data[$k]['goodsname'] = $res['goodsname'][$k];
+            $data[$k]['goodsid'] = $res['good_id'][$k];
+            $data[$k]['goodsdetail'] = $res['goodsdetail'][$k];
+            $data[$k]['number'] = $res['number'][$k];
+        }
+        // dd($data);
+        // $request->session()->flush();
+        // session(['cart'=>null]);
+
+        $row = DB::table('meizu_order')->insert($data);
         
         // var_dump($row);die;
         //获取顶级父类 
@@ -42,7 +60,7 @@ class IorderController extends Controller
             $re = DB::table('meizu_user_address')->where('uid',$id)->get();
             // var_dump($re);
 
-       return view('index/order/insert',['re'=>$re,'red'=>$red,'rea2'=>$rea1,'rea4'=>$rea3,'rea6'=>$rea5,'rea8'=>$rea7,'rea10'=>$rea9,'youlian'=>$youlian,'logo'=>$logo]);
+       return view('index/order/insert',['re'=>$re,'red'=>$data,'rea2'=>$rea1,'rea4'=>$rea3,'rea6'=>$rea5,'rea8'=>$rea7,'rea10'=>$rea9,'youlian'=>$youlian,'logo'=>$logo]);
 
     }
 
