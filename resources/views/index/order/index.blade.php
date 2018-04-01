@@ -75,7 +75,7 @@
     @foreach($res as $k => $v)
     <tr class="trHead">
         <td class="title clearfix" colspan="5">
-            <div class="f-fl">下单时间：<span class="time">{{$v->time}}</span>订单号：<span class="orderNumber">{{$v->number}}</span>
+            <div class="f-fl">下单时间：<span class="time">{{$v->time}}</span>订单号：<span class="orderNumber">{{$v->ordernumber}}</span>
             </div>
           
         </td>
@@ -91,7 +91,7 @@
                                     <span class="clearfix">
                                         <a target="_blank" href="" class="productDetail nameWidth">
                                         {{$v->goodsname}} </a>
-                                        <p>￥{{$v->price}} × {{$v->goodsid}}</p>
+                                        <p>￥{{$v->price}} × {{$v->number}}</p>
                                     </span>
                                 </div>
                             </div> 

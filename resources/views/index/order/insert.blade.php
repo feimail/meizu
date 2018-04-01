@@ -10,9 +10,9 @@
             </div>
             <div class="info">
                 <div class="main">
-                    <h2>订单提交成功,成功支付金额 <span>{{$red['totalprice']}}</span> 元</h2>
+                    <h2>订单提交成功,成功支付金额 <span></span> 元</h2>
                         <p class="tips">您已经成功的购买的该商品,可以进入我的订单进行查看</p>
-                    <p>订单号{{$red['number']}}&nbsp;&nbsp;&nbsp;&nbsp;
+                    <p>订单号{{$red[0]['number']}}&nbsp;&nbsp;&nbsp;&nbsp;
                           
                     </p>
                 </div>
@@ -20,7 +20,7 @@
                     <div class="tr">
                         <div class="td name">商品</div>
                         <div class="td value">
-                                    <span class="prod"> {{$red['goodsname']}}</span>
+                                    <span class="prod"> {{$red[0]['goodsname']}}</span>
                         </div>
                     </div>
                     <div class="tr">
@@ -29,7 +29,7 @@
                         {{getName($re[0]->sel)}} {{getName($re[0]->sels)}} {{getName($re[0]->selx)}} {{$re[0]->name}} {{$re[0]->phone}}
                         </div>
                     </div>
-                      <a href='/index/order/index?id={{$red['userid']}}'>我的订单</a\>
+                      <a href='/index/order/index?id={{$red[0]['userid']}}'>我的订单</a\>
                 </div>
             </div>
         </div>

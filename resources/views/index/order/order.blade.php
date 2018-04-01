@@ -110,6 +110,7 @@
         </ul>
         @endforeach
         <!----------                       ---------->
+        @if(!$address)
             <div class="kai"  >
                 <div class="order-address-add-icon" id="addressOpenBtn">
                     <div class="order-address-add-horizontal"></div>
@@ -151,6 +152,7 @@
                     </div>
                     <div class="order-address-row-tips"></div>
                     </div>
+                  
 
                     <!-------      结束    详细        ------>
                     <div class="order-address-row clearfix">
@@ -172,8 +174,9 @@
                     </div>
                        
                      </form>
+
                 </div>
-               
+                 @endif
             </div>
         </div>
 
@@ -205,10 +208,10 @@
       <div class="mzcontainer order-product">
       <form  action="/index/order/insert" method="post" enctype="multipart/form-data" >
           
-          <input type="hidden" name="userid" value="{{session('uid')}}" >     
-          <input type="hidden" name="time" value="{{ date('Y-m-d H:i:s')}}" >     
-          <input type="hidden" name="number" value="{{ time().rand(100000,999999) }}" >     
-          <input type="hidden" name="address" value="城南" >     
+          <!-- <input type="hidden" name="userid" value="{{session('uid')}}" >      -->
+          <!-- <input type="hidden" name="time" value="{{ date('Y-m-d H:i:s')}}" >      -->
+          <!-- <input type="hidden" name="number" value="{{ time().rand(100000,999999) }}" >      -->
+          <!-- <input type="hidden" name="address" value="" >      -->
                
                
       
@@ -231,32 +234,32 @@
             
             <tbody>
               @foreach($res as $k=>$v)
-                
-                        
               <tr>
                 <td class="order-product-table-name">
-                  <img src="{{$v['info']->img}}" class="order-product-image">
+                  <img src="{{$v['img']}}" class="order-product-image">
                   <div class="order-product-name">
-                    <a href="#" class="order-product-link"  target="_blank"><span>{{$v['info']->goodsname}}</span> <span>{{$v['type']}}</span>
+                    <a href="#" class="order-product-link"  target="_blank"><span>{{$v['goodsname']}}</span> <span>{{$v['type']}}</span>
                       <br>{{$v['color']}}</a></div>
-                   <input type="hidden" name="goodsdetail" value="{{$v['info']->img}}" >
-                   <input type="hidden" name="goodsname" value="{{$v['info']->goodsname}}{{$v['color']}}" >   
+                   <input type="hidden" name="cart_id[]" value="{{$v['id']}}" >
+                   <input type="hidden" name="goodsdetail[]" value="{{$v['img']}}" >
+                   <input type="hidden" name="goodsname[]" value="{{$v['goodsname']}}{{$v['color']}}" >   
+                   <input type="hidden" name="good_id[]" value="{{$v['good_id']}}" >   
                 </td>
                 <td class="order-product-table-price">
                   <p>
                   </p>
-                  <span class="order-product-price">{{$v['info']->price}}</span></td>
-               <input type="hidden" name="price" value="{{$v['info']->price}}" >
+                  <span class="order-product-price">{{$v['price']}}</span></td>
+               <input type="hidden" name="price[]" value="{{$v['price']}}" >
 
                 <td class="order-product-table-num">
                
                  <input type="text"  disabled  value="{{$v['number']}}" id="num" />
-                 <input type="hidden" name="goodsid"   value="{{$v['number']}}"  />
+                 <input type="hidden" name="number[]"   value="{{$v['number']}}"  />
 
                   </td>
                 <td class="order-product-table-total">
-                  <p class="order-product-price red">{{$v['number']*$v['info']->price}}</p></td>
-               <input type="hidden" name="totalprice" value="{{$v['number']*$v['info']->price}}" >
+                  <p class="order-product-price red">{{$v['number']*$v['price']}}</p></td>
+               <input type="hidden" name="totalprice[]" value="{{$v['number']*$v['price']}}" >
                 <td class="order-product-table-express" rowspan="1">
               <span color="red">¥ 0.00</span>   
                   <div class="order-product-arrival"></div>
@@ -300,7 +303,7 @@
           
           <div class="order-total-line"></div>
           <div class="order-total-row">应付：¥
-            <div class="order-total-price total">{{$v['number']*$v['info']->price}}</div></div>
+            <div class="order-total-price total">{{$res[0]['totalMoney']}}</div></div>
          {{csrf_field()}}
           <div class="order-total-row">
             <div class="btn">
