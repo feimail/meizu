@@ -58,7 +58,7 @@ Route::get('/yzm','LoginController@yzm');
 Route::controller('index/gologin','GologinController');
 Route::controller('index/register','RegisterController');
 // 前台注册页
-Route::get('/index/register','RegisterController@Register');
+Route::get('/index/register','RegisterController@Register')->name('home.index.register');
 Route::post('/index/doRegister','RegisterController@doRegister');
 
 // 忘记密码
@@ -70,8 +70,8 @@ Route::post('/index/updatePassword','RegisterController@update');
 Route::post('/index/youxiang','RegisterController@youxiang');
 
 // 前台登录
-Route::get('/index/gologin','IndexLoginController@gologin');
-Route::post('/index/doGologin','IndexLoginController@doGologin');
+Route::get('/index/gologin','IndexLoginController@gologin')->name('home.index.gologin');
+Route::post('/index/doGologin','IndexLoginController@doGologin')->name('home.index.doGologin');
 //前台退出
 Route::get('/index/indexLogout','IndexLoginController@indexLogout');
 //收藏商品
