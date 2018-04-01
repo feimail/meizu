@@ -31,7 +31,7 @@ use App\Http\Controllers\Controller;
         
         //显示模板
         $res = [];
-        $res = session('cart');
+        $res = session('carts');
         foreach ($res as $k => $v) {
            // var_dump($v['id']) ;die;
             $res[$k]['info'] = DB::table('meizu_goods')->where('id',$v['id'])->first();
