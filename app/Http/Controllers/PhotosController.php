@@ -28,12 +28,11 @@ class PhotosController extends Controller
             $rea1 = DB::table('meizu_goods')->where('pid','75')->get();
             $rea3 = DB::table('meizu_goods')->where('pid','76')->get();
             $rea5 = DB::table('meizu_goods')->where('pid','77')->get();
-            $rea7 = DB::table('meizu_goods')->whereIn('id', [37, 38,39,40,41])
-                    ->get();
+            // 精选配件
+            $rea7 = DB::table('meizu_goods')->whereIn('id', [37,38,39,40,41])->get();
+            // 智能硬件
             $rea9 = DB::table('meizu_goods')->where('pid','2')->limit(6)->get();
-            $users = DB::table('meizu_goods')
-                    ->whereIn('id', [1, 2, 3])
-                    ->get();
+            $users = DB::table('meizu_goods')->whereIn('id', [1, 2, 3])->get();
             //友联
             $youlian=DB::table('meizu_link')->where('status',1)->get();
             // 网站的logo

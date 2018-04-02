@@ -63,7 +63,7 @@
             </li>
             @if(!session('uid'))
             <li class="mz_login">
-              <a class="topbar-link " href="/index/gologin" > 登录 </a>
+              <a class="topbar-link" href="/index/gologin" > 登录 </a>
             </li>
             <li class="mz_login">
               <a class="topbar-link" href="/index/register" target="">注册</a>
