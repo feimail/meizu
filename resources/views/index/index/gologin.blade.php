@@ -48,8 +48,6 @@
 				<form id=""  action="/index/doGologin" method="post" enctype="application/x-www-form-urlencoded">
 					<div class="number">
 						<a class="linkABlue" id="toAccountLogin" href="javascript:void(0);">用户登录</a>
-						<!-- <span class="register-line"></span>
-						<a class="linkAGray" id="toVCodeLogin" href="/go/javascript:void(0);">验证码登录</a> -->
 					</div>
 					@if(session('error'))
 				        <div class="mws-form-message error">
@@ -81,88 +79,83 @@
 					 <span><input name="remember" id="remember" type="checkbox" value="1"/></span>
 						<label for="remember" tabindex="0">记住登录状态</label>
 						<a id="#" href="/index/forget"  class='linkABlue rememberFieldForA'>忘记密码?</a>
-						<!-- <a id="qrCode_login" href="/go/javascript:void(0);" title="手机扫描二维码登录">手机扫描二维码登录</a> -->
-						
 					 </div>
 					{{ csrf_field()}}
-
-					
 					<input type="submit"   value="登录" id="zhuce">
-					
 				</form>
-		  </div>
+		  	</div>
 	     </center>
 	
-<div id='flymeFooter' class='footerWrap'>
-	<div class='footerInner'>
-		<div class='footer-layer1'>
-			<div class='footer-innerLink'>
-				<a href="#" target="_blank" title="关于魅族">关于魅族</a>
-				<img class="foot-line" src="/go/picture4/space.gif">
-				<a href="http://hr.meizu.com" target="_blank" title="工作机会">工作机会</a>
-				<img class="foot-line" src="/go/picture4/space.gif">
-				<a href="#" target="_blank" title="联系我们">联系我们</a>
-				<img class="foot-line" src="/go/picture4/space.gif">
-				<a href="#" target="_blank" title="法律声明">法律声明</a>
-				<img class="foot-line" src="/go/picture4/space.gif">
-				<a href="#" target="_blank" title="常见问题">常见问题</a>
-				<img class="foot-line" src="/go/picture4/space.gif">
-				<a href="/go/javascript:void(0);" id="globalName" class="footer-language" title="简体中文">简体中文&nbsp;&nbsp;&nbsp;</a>
-			</div>
-			<div class='footer-service'>
-				<span class='service-label'>客服热线</span>
-				<span class='service-num'>400-788-3333</span>
-				<a id='service-online' class='service-online' href="/go/javascript:void(0);" title="在线客服">在线客服</a>
-			</div>
-			<div class='footer-outerLink'>
-				<a class='footer-sinaMblog' href="#" target="_blank"><i class='i_icon'></i></a>
-				
-				<a id='footer-weChat' class='footer-weChat' href="/go/javascript:void(0);" target="_blank"><i class='i_icon'></i></a>
-				<a class='footer-qzone' href="http://user.qzone.qq.com/2762957059" target="_blank"><i class='i_icon'></i></a>
-			</div>
-			<div id="globalContainer" class="footer-language_menu">
-				<a href="/go/javascript:void(0)" title="简体中文" class="checked">简体中文</a>
-				<a href="/go/javascript:void(0)" id="i18n-link" title="English" class="ClobalItem">English</a>
-	            <script>
-					;(function() {
-					    var url = location.href
-					    if (url.indexOf('vCodeLogin')>=0){
-					        url = url.replace('vCodeLogin', 'sso')
-					    }
-						var u = decodeURIComponent(url)
-						var r = /lang=([^&\s]+)/
-						var lowB = !('addEventListener' in window)
-						var addEvent = lowB ? window.attachEvent : window.addEventListener
+		<div id='flymeFooter' class='footerWrap'>
+			<div class='footerInner'>
+				<div class='footer-layer1'>
+					<div class='footer-innerLink'>
+						<a href="#" target="_blank" title="关于魅族">关于魅族</a>
+						<img class="foot-line" src="/go/picture4/space.gif">
+						<a href="http://hr.meizu.com" target="_blank" title="工作机会">工作机会</a>
+						<img class="foot-line" src="/go/picture4/space.gif">
+						<a href="#" target="_blank" title="联系我们">联系我们</a>
+						<img class="foot-line" src="/go/picture4/space.gif">
+						<a href="#" target="_blank" title="法律声明">法律声明</a>
+						<img class="foot-line" src="/go/picture4/space.gif">
+						<a href="#" target="_blank" title="常见问题">常见问题</a>
+						<img class="foot-line" src="/go/picture4/space.gif">
+						<a href="/go/javascript:void(0);" id="globalName" class="footer-language" title="简体中文">简体中文&nbsp;&nbsp;&nbsp;</a>
+					</div>
+					<div class='footer-service'>
+						<span class='service-label'>客服热线</span>
+						<span class='service-num'>400-788-3333</span>
+						<a id='service-online' class='service-online' href="/go/javascript:void(0);" title="在线客服">在线客服</a>
+					</div>
+					<div class='footer-outerLink'>
+						<a class='footer-sinaMblog' href="#" target="_blank"><i class='i_icon'></i></a>
+						
+						<a id='footer-weChat' class='footer-weChat' href="/go/javascript:void(0);" target="_blank"><i class='i_icon'></i></a>
+						<a class='footer-qzone' href="http://user.qzone.qq.com/2762957059" target="_blank"><i class='i_icon'></i></a>
+					</div>
+					<div id="globalContainer" class="footer-language_menu">
+						<a href="/go/javascript:void(0)" title="简体中文" class="checked">简体中文</a>
+						<a href="/go/javascript:void(0)" id="i18n-link" title="English" class="ClobalItem">English</a>
+			            <script>
+							;(function() {
+							    var url = location.href
+							    if (url.indexOf('vCodeLogin')>=0){
+							        url = url.replace('vCodeLogin', 'sso')
+							    }
+								var u = decodeURIComponent(url)
+								var r = /lang=([^&\s]+)/
+								var lowB = !('addEventListener' in window)
+								var addEvent = lowB ? window.attachEvent : window.addEventListener
 
-						if(r.test(u)) u = u.replace(r, 'lang=en_US')
-						else u += (~u.indexOf('?') ? '&' : '?') + 'lang=en_US'
+								if(r.test(u)) u = u.replace(r, 'lang=en_US')
+								else u += (~u.indexOf('?') ? '&' : '?') + 'lang=en_US'
 
-						addEvent(lowB ? 'onload' : 'load', function() {document.getElementById('i18n-link').setAttribute('href',u)})
-					}());
-				</script>
+								addEvent(lowB ? 'onload' : 'load', function() {document.getElementById('i18n-link').setAttribute('href',u)})
+							}());
+						</script>
+					</div>
+				</div>
+				<div class='clear'></div>
+				<div id='flymeCopyright' class="copyrightWrap">
+					<div class="copyrightInner">
+						<span>©2016 Meizu Telecom Equipment Co., Ltd. All rights reserved.</span>
+						<a href="http://www.miitbeian.gov.cn/" class='linkAGray' target="_blank">备案号: 粤ICP备13003602号-4</a>
+						<a href="http://www3.res.meizu.com/static/cn/widget/footer/images/icp2_b2dcb54.jpg" class='linkAGray' target="_blank">经营许可证编号: 粤B2-20130198</a>
+						<a target="_blank" href="http://www2.res.meizu.com/zh_cn/images/common/com_licence.jpg" hidefocus="true" class="linkAGray">营业执照</a>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class='clear'></div>
-		<div id='flymeCopyright' class="copyrightWrap">
-			<div class="copyrightInner">
-				<span>©2016 Meizu Telecom Equipment Co., Ltd. All rights reserved.</span>
-				<a href="http://www.miitbeian.gov.cn/" class='linkAGray' target="_blank">备案号: 粤ICP备13003602号-4</a>
-				<a href="http://www3.res.meizu.com/static/cn/widget/footer/images/icp2_b2dcb54.jpg" class='linkAGray' target="_blank">经营许可证编号: 粤B2-20130198</a>
-				<a target="_blank" href="http://www2.res.meizu.com/zh_cn/images/common/com_licence.jpg" hidefocus="true" class="linkAGray">营业执照</a>
-			</div>
-		</div>
-	</div>
-</div>
-<div id="wechatPic"></div>
-<script type="text/javascript">
-(function() {
-    var ga = document.createElement('script'), s;
-    ga.type = 'text/javascript';
-    ga.src = ('https:' == document.location.protocol ? 'https://tongji-res.meizu.com' : 'http://tongji-res1.meizu.com') + '/resources/tongji/flow.js';
-    s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(ga, s);
-})();
-</script>
+		<div id="wechatPic"></div>
+	<script type="text/javascript">
+		(function() {
+		    var ga = document.createElement('script'), s;
+		    ga.type = 'text/javascript';
+		    ga.src = ('https:' == document.location.protocol ? 'https://tongji-res.meizu.com' : 'http://tongji-res1.meizu.com') + '/resources/tongji/flow.js';
+		    s = document.getElementsByTagName('script')[0];
+		    s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 
 	<script charset="utf-8" type="text/javascript" src="/go/js4/jquery-1.7.1.min.js"></script>
 	<script charset="utf-8" type="text/javascript" src="/go/js3/jquery-1.8.3.min.js">  </script>

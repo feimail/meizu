@@ -50,14 +50,14 @@
         <div class="topbar-right">
             <ul class="topbar-info">
                <li class="topbar-info-msg" id="MzTopbarMsg" style="display: list-item;">
-              <a class="topbar-link" href="/index/trade/index" target="_blank">我的购物车</a>
+              <a class="topbar-link" href="/index/trade/index">我的购物车</a>
               <span class="msg-tag" id="MzMsgTag" style="display: inline;"></span>
             </li>
                 <li>
-                    <a class="topbar-link" href="/index/shou" target="_blank">我的收藏<div class="topbar-new">new</div></a>
+                    <a class="topbar-link" href="/index/shou">我的收藏<div class="topbar-new">new</div></a>
                 </li>
                 <li class="topbar-order-msg">
-                    <a class="topbar-link" href="/index/order/index?id={{session('uid')}}" target="_blank">我的订单</a>
+                    <a class="topbar-link" href="/index/order/index?id={{session('uid')}}">我的订单</a>
                     <span class="msg-tag" id="MzOrderMsgTag"></span>
                 </li>
                 @if(empty(session('uid')))
@@ -68,16 +68,16 @@
                 </li>
                 <li class="mz_login">
                     <a class="topbar-link" 
-                    href="index/register" target="_blank">注册</a>
+                    href="index/register">注册</a>
                 </li>
                  @else
                 <li class="topbar-info-member" >
-                    <a class="topbar-link" href="/index/ucenter/edit" target="_blank">
-                        <span id="MzUserName" class="site-member-name">{{ session('username')}}</span>的商城
+                    <a class="topbar-link" href="/index/ucenter/edit">
+                        <span id="MzUserName" class="site-member-name">{{ session('username')}}</span>
                     </a>
                     <div class="site-member-items">
-                        <a class="site-member-link" href="/index/address?id={{session('uid')}}" target="_blank"  data-mdesc="我的商城下拉框2">地址管理</a>
-                        <a class="site-member-link" href="" target="_blank" data-mtype="store_index_yt_9_3" data-mdesc="我的商城下拉框3">问题反馈</a>
+                        <a class="site-member-link" href="/index/address?id={{session('uid')}}" data-mdesc="我的商城下拉框2">地址管理</a>
+                        <a class="site-member-link" href="javascript:void()" data-mtype="store_index_yt_9_3" data-mdesc="我的商城下拉框3">问题反馈</a>
                         <a class="site-member-link site-logout"
                            href="/index/indexLogout"
                            data-href=""
@@ -92,7 +92,7 @@
 </div><div class="site-header">
     <div class="mzcontainer">
         <div class="header-logo">
-            <a href="/index" target="_blank">
+            <a href="/index">
                 <img src="#"
                      srcset="{{$logo->headlogo}}"
                      width="115"
@@ -104,12 +104,12 @@
             <ul class="nav-list">
                     <li class="nav-item">
                         <a class="nav-item-link" href="/go/javascrip:" onclick="return false"
-                           target="_blank">PRO手机</a>
+                          >PRO手机</a>
                         <div class="nav-item-children">
                             <ul class="menu-product-list">
                                     @foreach($rea2 as $k=>$v)
                                         <li class="menu-product-item">
-                                            <a href="/index/detail?id={{ $v->id}}" target="_blank"
+                                            <a href="/index/detail?id={{ $v->id}}"
                                                data-mtype=""
                                                data-mdesc="">
                                                 <div class="menu-product-figure">
@@ -136,12 +136,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-item-link" href="/go/javascrip:" onclick="return false"
-                           target="_blank">魅蓝手机</a>
+                          >魅蓝手机</a>
                         <div class="nav-item-children">
                             <ul class="menu-product-list">
                                   @foreach($rea4 as $k=>$v)
                                         <li class="menu-product-item">
-                                            <a href="/index/detail?id={{ $v->id}}" target="_blank"
+                                            <a href="/index/detail?id={{ $v->id}}"
                                                data-mtype="store_index_dh_1_1"
                                                data-mdesc="导航中第1个下第1个坑">
                                                 <div class="menu-product-figure">
@@ -163,15 +163,12 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-item-link" href="/go/javascrip:" onclick="return false"
-                           target="_blank">MX手机</a>
+                        <a class="nav-item-link" href="/go/javascrip:" onclick="return false">MX手机</a>
                         <div class="nav-item-children">
                             <ul class="menu-product-list">
                                        @foreach($rea6 as $k=>$v)
                                          <li class="menu-product-item">
-                                            <a href="/index/detail?id={{ $v->id}}" target="_blank"
-                                               
-                                               data-mdesc="导航中第1个下第1个坑">
+                                            <a href="/index/detail?id={{ $v->id}}" data-mdesc="导航中第1个下第1个坑">
                                                 <div class="menu-product-figure">
                                                     <img src="/go/picture/init-1x1_1.jpg"
                                                          data-src="{{$v->img}}" width="100" height="150"/>
@@ -192,12 +189,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-item-link" href="/go/javascrip:" onclick="return false"
-                           target="_blank">精选配件</a>
+                          >精选配件</a>
                         <div class="nav-item-children">
                             <ul class="menu-product-list">
                                       @foreach($rea8 as $k=>$v)
                                          <li class="menu-product-item">
-                                            <a href="/index/detail?id={{ $v->id}}" target="_blank"
+                                            <a href="/index/detail?id={{ $v->id}}"
                                                
                                                data-mdesc="导航中第1个下第1个坑">
                                                 <div class="menu-product-figure">
@@ -218,23 +215,23 @@
                                     <li class="menu-product-more">
                                         <div class="menu-more-links">
                                             <ul>
-                                                    <li class="menu-more-row"><a href="http://lists.meizu.com/page/list?categoryid=79&rc=sdsd" target="_blank"><img
+                                                    <li class="menu-more-row"><a href="http://lists.meizu.com/page/list?categoryid=79&rc=sdsd"><img
                                                             src="/go/picture/1467696166-40112_1.png" class="menu-more-img" width="28"
                                                             height="28"/>耳机 / 音箱</a>
                                                     </li>
-                                                    <li class="menu-more-row"><a href="http://lists.meizu.com/page/list?categoryid=80&rc=sd" target="_blank"><img
+                                                    <li class="menu-more-row"><a href="http://lists.meizu.com/page/list?categoryid=80&rc=sd"><img
                                                             src="/go/picture/1467696197-95413_1.png" class="menu-more-img" width="28"
                                                             height="28"/>路由器 / 移动电源</a>
                                                     </li>
-                                                    <li class="menu-more-row"><a href="http://lists.meizu.com/page/list?categoryid=81&rc=sd" target="_blank"><img
+                                                    <li class="menu-more-row"><a href="http://lists.meizu.com/page/list?categoryid=81&rc=sd"><img
                                                             src="/go/picture/1467696220-57637_1.png" class="menu-more-img" width="28"
                                                             height="28"/>保护套 / 后盖 / 贴膜</a>
                                                     </li>
-                                                    <li class="menu-more-row"><a href="http://lists.meizu.com/page/list?categoryid=82&rc=sd" target="_blank"><img
+                                                    <li class="menu-more-row"><a href="http://lists.meizu.com/page/list?categoryid=82&rc=sd"><img
                                                             src="/go/picture/1467696242-24236_1.png" class="menu-more-img" width="28"
                                                             height="28"/>数据线 / 电源适配器</a>
                                                     </li>
-                                                    <li class="menu-more-row"><a href="http://lists.meizu.com/page/list?categoryid=83&rc=sd" target="_blank"><img
+                                                    <li class="menu-more-row"><a href="http://lists.meizu.com/page/list?categoryid=83&rc=sd"><img
                                                             src="/go/picture/1467705893-97644_1.png" class="menu-more-img" width="28"
                                                             height="28"/>周边配件</a>
                                                     </li>
@@ -246,12 +243,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-item-link" href="/go/javascrip:" onclick="return false"
-                           target="_blank">智能硬件</a>
+                          >智能硬件</a>
                         <div class="nav-item-children">
                             <ul class="menu-product-list">
                                         @foreach($rea10 as $k=>$v)
                                          <li class="menu-product-item">
-                                            <a href="/index/detail?id={{ $v->id}}" target="_blank"
+                                            <a href="/index/detail?id={{ $v->id}}"
                                               
                                                data-mdesc="导航中第1个下第1个坑">
                                                 <div class="menu-product-figure">
@@ -277,7 +274,7 @@
         </div>
 
         <div class="header-cart" id="MzHeaderCart">
-            <a href="http://store.meizu.com/cart" target="_blank">
+            <a href="http://store.meizu.com/cart">
                 <div class="header-cart-wrap">
                     <span class="header-cart-icon"></span>
                     购物车
@@ -371,28 +368,28 @@
             <div class="footer-nav-item">
                 <h4 class="footer-nav-title">帮助说明</h4>
                 <ul>
-                    <li><a href="" target="_blank">支付方式</a></li>
-                    <li><a href="" target="_blank">配送说明</a></li>
-                    <li><a href="" target="_blank">售后服务</a></li>
-                    <li><a href="" target="_blank">付款帮助</a></li>
+                    <li><a href="">支付方式</a></li>
+                    <li><a href="">配送说明</a></li>
+                    <li><a href="">售后服务</a></li>
+                    <li><a href="">付款帮助</a></li>
                 </ul>
             </div>
             <div class="footer-nav-item">
                 <h4 class="footer-nav-title">Flyme</h4>
                 <ul>
-                    <li><a target="_blank" href="">开放平台</a></li>
-                    <li><a target="_blank" href="">固件下载</a></li>
-                    <li><a target="_blank" href="">软件商店</a></li>
-                    <li><a target="_blank" href="">查找手机</a></li>
+                    <li><a href="">开放平台</a></li>
+                    <li><a href="">固件下载</a></li>
+                    <li><a href="">软件商店</a></li>
+                    <li><a href="">查找手机</a></li>
                 </ul>
             </div>
             <div class="footer-nav-item">
                 <h4 class="footer-nav-title">关于我们</h4>
                 <ul>
-                    <li><a target="_blank" href="">关于魅族</a></li>
-                    <li><a target="_blank" href="">加入我们</a></li>
-                    <li><a target="_blank" href="">联系我们</a></li>
-                    <li><a target="_blank" href="">法律声明</a></li>
+                    <li><a href="">关于魅族</a></li>
+                    <li><a href="">加入我们</a></li>
+                    <li><a href="">联系我们</a></li>
+                    <li><a href="">法律声明</a></li>
                 </ul>
             </div>
             <div class="footer-nav-item">
@@ -400,7 +397,7 @@
                 <ul>
                     @foreach($youlian as $k=>$v)
                     @if($k<4)
-                    <li><a target="_blank" href="{{$v->url}}">{{$v->name}}</a></li>
+                    <li><a href="{{$v->url}}">{{$v->name}}</a></li>
                    @endif
                     @endforeach
                 
@@ -419,16 +416,16 @@
         <div class="site-footer-end">
             <p>
                 &copy;2016 Meizu Telecom Equipment Co., Ltd. All rights reserved.
-                <a target="_blank" href="" hidefocus="true">备案号：粤ICP备13003602号-2</a>
-                <a target="_blank" href="" hidefocus="true">经营许可证编号：粤B2-20130198</a>
-                <a target="_blank" href="" hidefocus="true">营业执照</a>
-                <a target="_blank" rel="nofollow" href="" hidefocus="true">
+                <a href="" hidefocus="true">备案号：粤ICP备13003602号-2</a>
+                <a href="" hidefocus="true">经营许可证编号：粤B2-20130198</a>
+                <a href="" hidefocus="true">营业执照</a>
+                <a rel="nofollow" href="" hidefocus="true">
                     <img src="/go/picture/footer-copy-1_1.png">
                 </a>
-                <a target="_blank" rel="nofollow" href="" hidefocus="true">
+                <a rel="nofollow" href="" hidefocus="true">
                     <img src="/go/picture/footer-copy-2_1.png">
                 </a>
-                <a target="_blank" rel="nofollow" href= hidefocus="true">
+                <a rel="nofollow" href= hidefocus="true">
                     <img src="/go/picture/trust-icon_1.png">
                 </a>
             </p>

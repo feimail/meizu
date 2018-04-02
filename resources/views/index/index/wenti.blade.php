@@ -66,25 +66,24 @@
                 </div>
                 <!-- <p class="Big-title">您的建议反馈是我们改进的最大动力</p> -->
                 <form action="/index/wenti/add" method="post">
-                <br>
-                <div class="content">
-                    <font color="green" size="3">商品名:{{$row['goodsname']}}</font>
-                    <div class="question">
-                        <span class="title">请描述您的问题:</span>
-                        <textarea class="area varify " name="question"></textarea>
+                    <div class="content">
+                        <font color="green" size="3">商品名:{{$row['goodsname']}}</font>
+                        <div class="question">
+                            <span class="title">请描述您的问题:</span>
+                            <textarea class="area varify " name="question"></textarea>
+                        </div>
+                        <!-- <div class="email">
+                            <span class="title">邮箱（选填）</span>
+                            <input type="text" class="self-email varify" maxlength="30">
+                        </div> -->
+                        <br><br>
+                        {{ csrf_field()}}
+                        <input type="hidden" name="goodsid" value="{{$row['goodsid']}}">
+                        <input type="hidden" name="username" value="{{$row['username']}}">
+                        <input type="hidden" name="goodsname" value="{{$row['goodsname']}}">
+                        <input type="submit" value="提交" id="cart">
                     </div>
-                    <!-- <div class="email">
-                        <span class="title">邮箱（选填）</span>
-                        <input type="text" class="self-email varify" maxlength="30">
-                    </div> -->
-                    <br><br>
-                    {{ csrf_field()}}
-                    <input type="hidden" name="goodsid" value="{{$row['goodsid']}}">
-                    <input type="hidden" name="username" value="{{$row['username']}}">
-                    <input type="hidden" name="goodsname" value="{{$row['goodsname']}}">
-                    <input type="submit" value="提交" id="cart">
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
 

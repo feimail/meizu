@@ -70,12 +70,12 @@
             </li>
             @else
               <li class="topbar-info-member" style="">
-                <a class="topbar-link" href="" target="_blank">
-                  <span id="MzUserName" class="site-member-name">{{ session('username')}}</span>的商城</a>
+                <a class="topbar-link" href="javascript:void(0)">
+                  <span id="MzUserName" class="site-member-name">{{ session('username')}}</span></a>
                 <div class="site-member-items">
-                  <a class="site-member-link" href="" target="_blank" data-mtype="store_index_yt_9_1" data-mdesc="我的商城下拉框1">地址管理</a>
-                  <a class="site-member-link" href="/index/address?id={{session('uid')}}">我的回购券</a>
-                  <a class="site-member-link" href="">问题反馈</a>
+                  <a class="site-member-link" href="/index/address?id={{session('uid')}}" data-mtype="store_index_yt_9_1" data-mdesc="我的商城下拉框1">地址管理</a>
+                  <a class="site-member-link" href="javascript:void()">我的回购券</a>
+                  <a class="site-member-link" href="javascript:void()">问题反馈</a>
                   <a class="site-member-link site-logout" href="" data-href="" data-mtype="store_index_yt_9_4" data-mdesc="我的商城下拉框4">退出</a>
                 </div>
               </li>
@@ -118,8 +118,6 @@
           <li class="order-bread-module">在线支付</li>
           <li class="order-bread-module">完成</li></ul>
       </div>
-      <!-- ----------------------------------------------------------------- -->
-
 
         
       <div class="mzcontainer order-product">
@@ -201,7 +199,6 @@
       
        <!-- @show -->
       
-      <!------------------------------------------------------------------------------>
       <div class="mzcontainer order-total clearfix">
         <div class="order-total-content">
           

@@ -538,38 +538,31 @@
 
         //收藏商品
        
-      $(function(){
-         $('#J_favorite').click(function(){
-        //获取id
-      	var id = $('#shoucang').val();
-      	// console.log(id);
-      	// return;
-    
-      // 发送
-      $.get('/index/shou/ajaxupdate', {id:id}, function(data){
-          if(data == '1'){
-	            // alert("收藏成功"+ "\n" + "<a href='index/shou'>查看我的收藏</a>");
-	             alert('收藏成功');
-	          }else if(data == '2'){
-	            alert('收藏失败');
-	          }else if(data == '3'){
-	          	alert('已经收藏');
-	          }else if(data == '4'){
-	          	alert('没有登陆');
-	          	location.href="/index/gologin";
-	          }
-           });
+        $(function(){
+            $('#J_favorite').click(function(){
+                //获取id
+                var id = $('#shoucang').val();
+      	
+                // 发送
+                $.get('/index/shou/ajaxupdate', {id:id}, function(data){
+                    if(data == '1'){
+                        alert('收藏成功');
+                    }else if(data == '2'){
+                        alert('收藏失败');
+                    }else if(data == '3'){
+                        alert('已经收藏');
+                    }else if(data == '4'){
+                        alert('没有登陆');
+                        location.href="/index/gologin";
+                    }
+                });
+            })
         })
-      })
-    
 
-     //删除收藏商品
-     
-        </script>
+    </script>
 
-        <!-- 百度分享 -->
+    <!-- 百度分享 -->
 
-        <script>window._bd_share_config={"common":{"bdSnsKey":{"tsina":"www.xinlang.com","tqq":"www.tengxun.com","t163":"www.wangyi.com","tsohu":"www.souhu.com"},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"2","bdPos":"right","bdTop":"174.5"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-       <!-- <div class="dingbu" title="回到顶部"><a href="#top" ><img src="/go/images3/top.png" alt="" id="imgs"></a></div> -->
+    <script>window._bd_share_config={"common":{"bdSnsKey":{"tsina":"www.xinlang.com","tqq":"www.tengxun.com","t163":"www.wangyi.com","tsohu":"www.souhu.com"},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"2","bdPos":"right","bdTop":"174.5"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 @endsection
 
