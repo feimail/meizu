@@ -41,16 +41,16 @@
     <div class="site-topbar clearfix">
       <div class="mzcontainer">
         <div class="topbar-nav">
-          <a href="" target="_blank" data-mtype="store_index_yt_1" data-mdesc="页头中第1个">魅族官网</a>
+          <a href="" data-mtype="store_index_yt_1" data-mdesc="页头中第1个">魅族官网</a>
           <a href="" data-mtype="store_index_yt_2" data-mdesc="页头中第2个">魅族商城</a>
-          <a href="" target="_blank" data-mtype="store_index_yt_3" data-mdesc="页头中第3个">Flyme</a>
-          <a href="" target="_blank" data-mtype="store_index_yt_4" data-mdesc="页头中第4个">专卖店</a>
-          <a href="" target="_blank" data-mtype="store_index_yt_5" data-mdesc="页头中第5个">服务</a>
-          <a href="" target="_blank" data-mtype="store_index_yt_6" data-mdesc="页头中第6个">社区</a></div>
+          <a href="" data-mtype="store_index_yt_3" data-mdesc="页头中第3个">Flyme</a>
+          <a href="" data-mtype="store_index_yt_4" data-mdesc="页头中第4个">专卖店</a>
+          <a href="" data-mtype="store_index_yt_5" data-mdesc="页头中第5个">服务</a>
+          <a href="" data-mtype="store_index_yt_6" data-mdesc="页头中第6个">社区</a></div>
         <div class="topbar-right">
           <ul class="topbar-info">
             <li class="topbar-info-msg" id="MzTopbarMsg" style="display: list-item;">
-              <a class="topbar-link" href="/index/trade/index" target="_blank">我的购物车</a>
+              <a class="topbar-link" href="/index/trade/index">我的购物车</a>
               <span class="msg-tag" id="MzMsgTag" style="display: inline;"></span>
             </li>
             <li>
@@ -63,10 +63,10 @@
             </li>
             @if(!session('uid'))
             <li class="mz_login" style="">
-              <a class="topbar-link " href="/index/gologin" > 登录1 </a>
+              <a class="topbar-link " href="/index/gologin" > 登录 </a>
             </li>
             <li class="mz_login" style="">
-              <a class="topbar-link" href="/index/register" target="">注册1</a>
+              <a class="topbar-link" href="/index/register" target="">注册</a>
             </li>
             @else
               <li class="topbar-info-member" style="">
@@ -90,12 +90,12 @@
     <div class="site-header">
       <div class="mzcontainer">
         <div class="header-logo">
-          <a href="" target="_blank">
+          <a href="">
             <img src="/qiantai/order/logo-header.png" srcset=""></a>
         </div>
       
         <div class="header-cart" id="MzHeaderCart">
-          <a href="" target="_blank">
+          <a href="">
             <div class="header-cart-wrap">
               <span class="header-cart-icon"></span>购物车
               <span id="MzHeaderCartNum" class="header-cart-num" data-extcls="existence">0</span>
@@ -121,8 +121,7 @@
 
         
       <div class="mzcontainer order-product">
-      <form  action="/index/trade/order" method="post" enctype="multipart/form-data" >
-       <!-- <input type="hidden" name="uid" value="20" > -->
+      <form  action="/index/trade/order" method="post" enctype="multipart/form-data">
         <div class="order-product-list">
           <table cellspacing="0" cellpadding="0">
             <thead>
@@ -148,7 +147,7 @@
               <td class="order-product-table-name">
                 <img src="{{$v['info']->img}}" class="order-product-image">
                 <div class="order-product-name">
-                  <a href="#" class="order-product-link"  target="_blank">{{$v['goodsname']}} {{$v['type']}}
+                  <a href="#" class="order-product-link">{{$v['goodsname']}} {{$v['type']}}
                     <br>{{$v['color']}}
                   </a>
                 </div>
@@ -163,23 +162,23 @@
                 <input type="button" value="+" class="plus">
               </td>
                 <td class="order-product-table-total">
-                  <p class="order-product-price red">{{$v['number']*$v['price']}}</p></td>
+                    <p class="order-product-price red">{{$v['number']*$v['price']}}</p>
+                </td>
                 <td class="order-product-table-express" rowspan="1">
-                  @if(session('uid'))
-                  <a href="/index/trade/delete?id={{$v['id']}}">删除<a/> 
-                  @else
-                  <a href="/index/trade/delete?id={{$k}}">删除<a/>    
-                  @endif
-                  <div class="order-product-arrival"></div>
+                    @if(session('uid'))
+                        <a href="/index/trade/delete?id={{$v['id']}}">删除<a/> 
+                    @else
+                        <a href="/index/trade/delete?id={{$k}}">删除<a/>    
+                    @endif
+                    <div class="order-product-arrival"></div>
                 </td>
               </tr>
              @endforeach
 
             </tbody>
-           
             <tfoot>
               <tr>
-                <td align="center"><!-- <input type="checkbox"  name="a" style="" value="" > --></td>
+                <td align="center"></td>
                 <td colspan="5" color="red" >
                   <div class="order-product-info">
                     <div class="order-product-invoice clearfix">
@@ -208,7 +207,6 @@
          {{csrf_field()}}
           <div class="order-total-row">
             <div class="btn">
-            <!-- <input type="submit" class="btn"name="Submit" value="结算"> -->
               <button class="btn" id='jiesuan'>结算</button>
             </div>
           </div>
@@ -284,36 +282,36 @@
             <div class="footer-nav-item">
                 <h4 class="footer-nav-title">帮助说明</h4>
                 <ul>
-                    <li><a href="" target="_blank">支付方式</a></li>
-                    <li><a href="" target="_blank">配送说明</a></li>
-                    <li><a href="" target="_blank">售后服务</a></li>
-                    <li><a href="" target="_blank">付款帮助</a></li>
+                    <li><a href="">支付方式</a></li>
+                    <li><a href="">配送说明</a></li>
+                    <li><a href="">售后服务</a></li>
+                    <li><a href="">付款帮助</a></li>
                 </ul>
             </div>
             <div class="footer-nav-item">
                 <h4 class="footer-nav-title">Flyme</h4>
                 <ul>
-                    <li><a target="_blank" href="">开放平台</a></li>
-                    <li><a target="_blank" href="">固件下载</a></li>
-                    <li><a target="_blank" href="">软件商店</a></li>
-                    <li><a target="_blank" href="">查找手机</a></li>
+                    <li><a href="">开放平台</a></li>
+                    <li><a href="">固件下载</a></li>
+                    <li><a href="">软件商店</a></li>
+                    <li><a href="">查找手机</a></li>
                 </ul>
             </div>
             <div class="footer-nav-item">
                 <h4 class="footer-nav-title">关于我们</h4>
                 <ul>
-                    <li><a target="_blank" href="">关于魅族</a></li>
-                    <li><a target="_blank" href="">加入我们</a></li>
-                    <li><a target="_blank" href="">联系我们</a></li>
-                    <li><a target="_blank" href="">法律声明</a></li>
+                    <li><a href="">关于魅族</a></li>
+                    <li><a href="">加入我们</a></li>
+                    <li><a href="">联系我们</a></li>
+                    <li><a href="">法律声明</a></li>
                 </ul>
             </div>
             <div class="footer-nav-item">
                 <h4 class="footer-nav-title">关注我们</h4>
                 <ul>
-                    <li><a target="_blank" href="">新浪微博</a></li>
-                    <li><a target="_blank" href="">腾讯微博</a></li>
-                    <li><a target="_blank" href="">QQ空间</a></li>
+                    <li><a href="">新浪微博</a></li>
+                    <li><a href="">腾讯微博</a></li>
+                    <li><a href="">QQ空间</a></li>
                     <li>
                         <a class="meizu-footer-wechat">
                             官方微信
@@ -334,16 +332,16 @@
         <div class="site-footer-end">
             <p>
                 ©2016 Meizu Telecom Equipment Co., Ltd. All rights reserved.
-                <a target="_blank" href="">备案号：粤ICP备13003602号-2</a>
-                <a target="_blank" href="" hidefocus="true">经营许可证编号：粤B2-20130198</a>
-                <a target="_blank" href="" hidefocus="true">营业执照</a>
-                <a target="_blank" rel="nofollow" href="" hidefocus="true">
+                <a href="">备案号：粤ICP备13003602号-2</a>
+                <a href="" hidefocus="true">经营许可证编号：粤B2-20130198</a>
+                <a href="" hidefocus="true">营业执照</a>
+                <a rel="nofollow" href="" hidefocus="true">
                     <img src="./order/footer-copy-1.png">
                 </a>
-                <a target="_blank" rel="nofollow" href="" hidefocus="true">
+                <a rel="nofollow" href="" hidefocus="true">
                     <img src="./order/footer-copy-2.png">
                 </a>
-                <a target="_blank" rel="nofollow" href="" hidefocus="true">
+                <a rel="nofollow" href="" hidefocus="true">
                     <img src="./order/trust-icon.png">
                 </a>
             </p>

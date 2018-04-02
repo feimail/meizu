@@ -16,13 +16,9 @@ class ItradeController extends Controller
     */
     public function postInsert(Request $request)
     {
-       
-        // session()->flush();
-        // dd(session('cart'));
 
         //获取数据
         $res = $request->except('_token');
-        // dd($res);
         if(!$res['web']) {
             return back()->with('error','网络类型未选取，请重新选择!');
         }
@@ -38,10 +34,8 @@ class ItradeController extends Controller
 
         //判断用户是否登录
         $userId = session('uid');
-        // dd(session('uid'));
         //如果登录商品加入购物车
         if(isset($userId)){
-            // dd(1);
             //number数量
             if(!$res['number']){
                 $res['number']="1";
@@ -50,29 +44,27 @@ class ItradeController extends Controller
             $res['buyer_id'] = $userId;
             $where['buyer_id'] = $res['buyer_id'];
             $where['good_id'] = $res['id'];
-            // $where['goodsname'] = $res['goodsname'];
-            // $where['price'] = $res['price'];
             $where['taocan'] = $res['taocan'];
             $where['type'] = $res['type'];
             $where['web'] = $res['web'];
             $sameGoods = CartModel::where($where)->first();
-                if($sameGoods){
-                      $number =  $sameGoods['number'] + $res["number"];
-                      $Cart = CartModel::where('good_id',$res['id'])->update(['number'=>$number]);
-                }else{
-                    $goodRes = GoodsModel::where('id',$res['id'])->first();
-                    $Cart = New CartModel;
-                    $Cart->buyer_id = $userId;
-                    $Cart->good_id  = $res['id'];
-                    $Cart->goodsname  = $goodRes['goodsname'];
-                    $Cart->taocan = $res['taocan'];
-                    $Cart->type = $res['type'];
-                    $Cart->color = $res['color'];
-                    $Cart->web = $res['web'];
-                    $Cart->number = $res['number'];
-                    $Cart->price = $goodRes['price'];
-                    $Cart->img = $goodRes['img'];
-                    $cartRes = $Cart->save();
+            if($sameGoods){
+                  $number =  $sameGoods['number'] + $res["number"];
+                  $Cart = CartModel::where('good_id',$res['id'])->update(['number'=>$number]);
+            }else{
+                $goodRes = GoodsModel::where('id',$res['id'])->first();
+                $Cart = New CartModel;
+                $Cart->buyer_id = $userId;
+                $Cart->good_id  = $res['id'];
+                $Cart->goodsname  = $goodRes['goodsname'];
+                $Cart->taocan = $res['taocan'];
+                $Cart->type = $res['type'];
+                $Cart->color = $res['color'];
+                $Cart->web = $res['web'];
+                $Cart->number = $res['number'];
+                $Cart->price = $goodRes['price'];
+                $Cart->img = $goodRes['img'];
+                $cartRes = $Cart->save();
                 }
         }else{
             if(!$res['number']) {
@@ -83,24 +75,23 @@ class ItradeController extends Controller
             $res['goodsname'] = $goodRes['goodsname'];
             $res['price'] = $goodRes['price'];
             $res['img'] = $goodRes['img'];
-                    if (!empty(session('cart'))){
-                            foreach (session('cart') as $k => $v){
-                                if($v['id'] == $id){
-                                     $cartRes = session('cart');
-                                     $number = session('cart')[$k]['number'];
-                                     $number = intval($number) + intval($res['number']);
-                                     $res['number'] = $number;
-                                     $cartRes[$k] = $res;
-                                     session(['cart'=>$cartRes]);
-                                     // dd(session('cart'));
+            if (!empty(session('cart'))){
+                    foreach (session('cart') as $k => $v){
+                        if($v['id'] == $id){
+                             $cartRes = session('cart');
+                             $number = session('cart')[$k]['number'];
+                             $number = intval($number) + intval($res['number']);
+                             $res['number'] = $number;
+                             $cartRes[$k] = $res;
+                             session(['cart'=>$cartRes]);
 
-                                }else{
-                                    $request->session()->push('cart',$res);
-                                }
-                            } 
-                    } else {
-                      $request->session()->push('cart',$res);
-                    }
+                        }else{
+                            $request->session()->push('cart',$res);
+                        }
+                    } 
+            } else {
+              $request->session()->push('cart',$res);
+            }
         }    
          //友联
         $youlian=DB::table('meizu_link')->where('status',1)->get();
@@ -120,7 +111,6 @@ class ItradeController extends Controller
         $userId = session('uid');
         if(!isset($userId)){
             //如果没有登录
-            //定义数组
             if(empty(session('cart'))){
                  echo '<script>
                      alert("购物车是空的,请添加商品");
@@ -129,7 +119,6 @@ class ItradeController extends Controller
             } 
             $res = [];
             $res = session('cart');
-            // dd($res);
             foreach ($res as $k => $v) {
                 $res[$k]['info'] = DB::table('meizu_goods')->where('id',$v['id'])->first();
             }
@@ -138,11 +127,10 @@ class ItradeController extends Controller
             $res = [];
             $res = CartModel::where('buyer_id',$userId)->get();
             foreach ($res as $k => $v) {
-                $res[$k]['info'] = DB::table('meizu_goods')->where('id',$v['good_id'])->first();
+                $res[$k]['info'] = DB::table('meizu_goods')->where('id', $v['good_id'])->first();
             }
             
         }
-        // dd($res);
         return view('index/trade/trade',['res'=>$res]);
     }
 
@@ -150,7 +138,7 @@ class ItradeController extends Controller
     public function getDelete(Request $request)
     {
         //获取商品id
-         $id = $request->input('id');
+        $id = $request->input('id');
         //判断是否登录
         $userId = session('uid');
         if(!$userId){
@@ -158,73 +146,56 @@ class ItradeController extends Controller
             unset($res[$id]);
             session(['cart'=>$res]);
         }else{
-            $where = ["good_id"=>$id, 'buyer_id'=>$userId];
-            CartModel::where($where)->delete();
+            $where = ['id'=> $id, 'buyer_id' => $userId];
+            logger('购物车删除指定商品', [$where]);
+            $res = CartModel::where($where)->delete();
         }
-    	
         return back();
-
     }
 
-    public function postOrder(Request $request){
-
-        // dd($request->all());
+    public function postOrder(Request $request)
+    {
         $userId = session('uid');
         //获取
-        if(empty($userId))
-        {
-        echo '<script>
+        if(empty($userId)) {
+            echo '<script>
                  alert("请登录后购买商品");
                  window.location.href="/index/gologin";
              </script>';
         } else {
 
-        $res = $request->except('_token');
-            if(!isset($res['cart_id'])){
+            $res = $request->except('_token');
+            if(!isset($res['cart_id'])) {
                 echo '<script>
                      alert("请选择购买的商品");
                      window.location.href="index/trade/index";
                  </script>';
             } 
-        // dd($res);
-        $data = [];
-        foreach ($res['cart_id'] as $k1 => $v1) {
-            $data[$k1]['cart_id'] = $v1;
-            foreach ($res['number'] as $k2 => $v2) {
-            $data[$k2]['number'] = $v2;
-        }
-            
-        }
-        
-        // dd($data);
-        //显示模板 67 48 
-        $cartRes = [];
-        $cartRes[0]['totalMoney'] = 0;
-        foreach ($data as $k3 => $v3) {
-            // dd($k3);
-            if(isset($data[$k3]['cart_id'])){
-                $cartRes[$k3] = CartModel::where('id',$data[$k3]['cart_id'])->first();
-                $cartRes[0]['totalMoney']  +=  ($data[$k3]['number'] * $cartRes[$k3]['price']);
-                $cartRes[$k3]['number']  = $data[$k3]['number']; 
+            $data = [];
+            foreach ($res['cart_id'] as $k1 => $v1) {
+                $data[$k1]['cart_id'] = $v1;
+                foreach ($res['number'] as $k2 => $v2) {
+                    $data[$k2]['number'] = $v2;
+                }
+                
             }
-           
-        }
-        session(['carts'=>$cartRes]);
-      
-        // dd($cartRes);
-        // dd($cartRes);
-        // foreach ($res as $k => $v) {
-        //    // var_dump($v['id']) ;die;
-        //     $res[$k]['info'] = DB::table('meizu_goods')->where('id',$v['id'])->first();
-        // }
-        $address = DB::table('meizu_user_address')->where('uid',session('uid'))->get();
-
-        return view('index/order/order',[
-            // 'address'=>$address,
-            'res'=>$cartRes,
-            'request'=>$request,
-            // 'r'=>$r,
-            'address'=>$address
+        
+            $cartRes = [];
+            $cartRes[0]['totalMoney'] = 0;
+            foreach ($data as $k3 => $v3) {
+                if(isset($data[$k3]['cart_id'])){
+                    $cartRes[$k3] = CartModel::where('id',$data[$k3]['cart_id'])->first();
+                    $cartRes[0]['totalMoney']  +=  ($data[$k3]['number'] * $cartRes[$k3]['price']);
+                    $cartRes[$k3]['number']  = $data[$k3]['number']; 
+                }
+               
+            }
+            session(['carts'=>$cartRes]);
+            $address = DB::table('meizu_user_address')->where('uid',session('uid'))->get();
+            return view('index/order/order',[
+                'res'=>$cartRes,
+                'request'=>$request,
+                'address'=>$address
             ]); 
         }
         
