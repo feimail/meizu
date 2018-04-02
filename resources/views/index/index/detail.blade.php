@@ -65,8 +65,7 @@
                         <ul class="preview-thumb clearfix" id="ulss">
                                 @foreach($row['pic'] as $k=>$v)
                                 <li >
-                                    <a data-mtype="store_de_tp_3" ><img
-                                            src="{{$v}}" width="75" height="75"></a>
+                                    <a data-mtype="store_de_tp_3" ><img src="{{$v}}" width="75" height="75"></a>
                                 </li>
                                 @endforeach
                         </ul>
@@ -75,7 +74,6 @@
                     <div class="property" id="property">
                             <div class="property-hd">
                                 <h1>{{$res->goodsname}}</h1>
-
                                 <p class="mod-info ">{{$res->desc}}</p>
                             </div>
                             <div class="property-sell">
@@ -166,19 +164,17 @@
                             <!-- 提示信息 -->
                             @if(session('error'))
                             <div class="property-service">
-                                    <dl class="property-service-item clearfix">
-                                        <dt class="vm-metatit"><b><font color="red">提<span class="s-space"></span><span class="s-space"></span>示：</font></b>
-                                        </dt>
-                                        <dd class="mod-bd" id="J_prodService">
-                                                <span><font color="red">{{session('error')}}</font></span>
-                                        </dd>
-                                    </dl>
-                                
+                                <dl class="property-service-item clearfix">
+                                    <dt class="vm-metatit"><b><font color="red">提<span class="s-space"></span><span class="s-space"></span>示：</font></b>
+                                    </dt>
+                                    <dd class="mod-bd" id="J_prodService">
+                                            <span><font color="red">{{session('error')}}</font></span>
+                                    </dd>
+                                </dl>
                             </div>
                             @endif
                             <div class="property-buy">
-                                <p class="vm-message" id="J_message">
-                                </p>
+                                <p class="vm-message" id="J_message"> </p>
                                 <dl class="property-buy-quantity">
                                     <dt class="vm-metatit">数<span class="s-space"></span><span class="s-space"></span>量：
                                     </dt>
@@ -288,9 +284,9 @@
                                 <li>
                                     <a data-mtype="store_de_xq_2" id="guige">规格参数</a>
                                 </li>
-                                    <li>
-                                        <a data-mtype="store_de_xq_3" id="pingjia">常见问题</a>
-                                    </li>
+                                <li>
+                                    <a data-mtype="store_de_xq_3" id="pingjia">常见问题</a>
+                                </li>
                             </ul>
 
                         </div>
@@ -299,136 +295,134 @@
                 <div class="detail-content container">
                     <!-- 商品详情图片 -->
                     <div class="introduce" id="introduce" style="display:block;">
-                            <img class="lazy" data-original="http://storeimg.meizu.com/product/1463644172-74098.png" width="1240"  alt="" src="/go/picture3/xiangqing1.png">
-                            <img class="lazy" data-original="http://storeimg.meizu.com/product/1461809097-49033.png" width="1240" alt="" src="/go/picture3/xiangqing2.png">
-                            <img class="lazy" data-original="http://storeimg.meizu.com/product/1461809107-25803.png" width="1240" alt="" src="/go/picture3/xiangqing3.png">
-                            <img class="lazy" data-original="http://storeimg.meizu.com/product/1463644244-39838.png" width="1240" alt="" src="/go/picture3/xiangqing4.png">
-                            <img class="lazy" data-original="http://storeimg.meizu.com/product/1461810050-17925.png" width="1240" alt="" src="/go/picture3/xiangqing5.png">
-                            <img class="lazy" data-original="http://storeimg.meizu.com/product/1461809125-47271.png" width="1240" alt="" src="/go/picture3/xiangqing6.png">
-                            <img class="lazy" data-original="http://storeimg.meizu.com/product/1461809125-47271.png" width="1240" alt="" src="/go/picture3/xiangqing7.png">
+                        <img class="lazy" data-original="http://storeimg.meizu.com/product/1463644172-74098.png" width="1240"  alt="" src="/go/picture3/xiangqing1.png">
+                        <img class="lazy" data-original="http://storeimg.meizu.com/product/1461809097-49033.png" width="1240" alt="" src="/go/picture3/xiangqing2.png">
+                        <img class="lazy" data-original="http://storeimg.meizu.com/product/1461809107-25803.png" width="1240" alt="" src="/go/picture3/xiangqing3.png">
+                        <img class="lazy" data-original="http://storeimg.meizu.com/product/1463644244-39838.png" width="1240" alt="" src="/go/picture3/xiangqing4.png">
+                        <img class="lazy" data-original="http://storeimg.meizu.com/product/1461810050-17925.png" width="1240" alt="" src="/go/picture3/xiangqing5.png">
+                        <img class="lazy" data-original="http://storeimg.meizu.com/product/1461809125-47271.png" width="1240" alt="" src="/go/picture3/xiangqing6.png">
+                        <img class="lazy" data-original="http://storeimg.meizu.com/product/1461809125-47271.png" width="1240" alt="" src="/go/picture3/xiangqing7.png">
                     </div>
                     <div class="standard" id="standard" >
                         <table class="standard-table">
                             <tbody>
-                                    <tr class="standard-table-group">
-                                        <th colspan="2">
-                                            基础信息
-                                        </th>
+                                <tr class="standard-table-group">
+                                    <th colspan="2"> 基础信息</th>
+                                </tr>
+                                <tr>
+                                    <th>品牌</th>
+                                    <td>魅族</td>
+                                </tr>
+                                <tr>
+                                    <th>型号</th>
+                                    <td>{{$res->goodsname}}</td>
+                                </tr>
+                                <tr>
+                                    <th>尺寸</th>
+                                    <td>141.5*69.5* 8.3mm</td>
+                                </tr>
+                                <tr>
+                                    <th>电池容量</th>
+                                    <td>2870mAh</td>
+                                </tr>
+                                <tr>
+                                    <th>重量</th>
+                                    <td>132g</td>
+                                </tr>
+                                <tr class="standard-table-group">
+                                    <th colspan="2">屏幕</th>
+                                </tr>
+                                    <tr>
+                                        <th>屏幕尺寸</th>
+                                        <td>5.0英寸</td>
                                     </tr>
-                                        <tr>
-                                            <th>品牌</th>
-                                            <td>魅族</td>
-                                        </tr>
-                                        <tr>
-                                            <th>型号</th>
-                                            <td>{{$res->goodsname}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>尺寸</th>
-                                            <td>141.5*69.5* 8.3mm</td>
-                                        </tr>
-                                        <tr>
-                                            <th>电池容量</th>
-                                            <td>2870mAh</td>
-                                        </tr>
-                                        <tr>
-                                            <th>重量</th>
-                                            <td>132g</td>
-                                        </tr>
-                                    <tr class="standard-table-group">
-                                        <th colspan="2">屏幕</th>
+                                    <tr>
+                                        <th>分辨率</th>
+                                        <td>1280 x 720</td>
                                     </tr>
-                                        <tr>
-                                            <th>屏幕尺寸</th>
-                                            <td>5.0英寸</td>
-                                        </tr>
-                                        <tr>
-                                            <th>分辨率</th>
-                                            <td>1280 x 720</td>
-                                        </tr>
-                                    <tr class="standard-table-group">
-                                        <th colspan="2">容量</th>
+                                <tr class="standard-table-group">
+                                    <th colspan="2">容量</th>
+                                </tr>
+                                    <tr>
+                                        <th>运行内存（RAM）</th>
+                                        <td>2GB（仅限16G版本）、3GB（仅限32G版本）</td>
                                     </tr>
-                                        <tr>
-                                            <th>运行内存（RAM）</th>
-                                            <td>2GB（仅限16G版本）、3GB（仅限32G版本）</td>
-                                        </tr>
-                                    <tr class="standard-table-group">
-                                        <th colspan="2">
-                                            处理器
-                                        </th>
+                                <tr class="standard-table-group">
+                                    <th colspan="2">
+                                        处理器
+                                    </th>
+                                </tr>
+                                    <tr>
+                                        <th>CPU</th>
+                                        <td>MTK MT6750 处理器</td>
                                     </tr>
-                                        <tr>
-                                            <th>CPU</th>
-                                            <td>MTK MT6750 处理器</td>
-                                        </tr>
-                                        <tr>
-                                            <th>GPU</th>
-                                            <td>ARM Mali T860 图形处理器</td>
-                                        </tr>
-                                    <tr class="standard-table-group">
-                                        <th colspan="2">
-                                            网络
-                                        </th>
+                                    <tr>
+                                        <th>GPU</th>
+                                        <td>ARM Mali T860 图形处理器</td>
                                     </tr>
-                                        <tr>
-                                            <th>网络模式</th>
-                                            <td>双卡多模</td>
-                                        </tr>
-                                    <tr class="standard-table-group">
-                                        <th colspan="2">
-                                            摄像
-                                        </th>
+                                <tr class="standard-table-group">
+                                    <th colspan="2">
+                                        网络
+                                    </th>
+                                </tr>
+                                    <tr>
+                                        <th>网络模式</th>
+                                        <td>双卡多模</td>
                                     </tr>
-                                        <tr>
-                                            <th>前置摄像头</th>
-                                            <td>500万像素</td>
-                                        </tr>
-                                        <tr>
-                                            <th>后置摄像头</th>
-                                            <td>1300万像素</td>
-                                        </tr>
-                                    <tr class="standard-table-group">
-                                        <th colspan="2">
-                                            系统与应用
-                                        </th>
+                                <tr class="standard-table-group">
+                                    <th colspan="2">
+                                        摄像
+                                    </th>
+                                </tr>
+                                    <tr>
+                                        <th>前置摄像头</th>
+                                        <td>500万像素</td>
                                     </tr>
-                                        <tr>
-                                            <th>系统版本</th>
-                                            <td>Flyme 5.1 powered by YunOS</td>
-                                        </tr>
-                                    <tr class="standard-table-group">
-                                        <th colspan="2">
-                                            包装清单
-                                        </th>
+                                    <tr>
+                                        <th>后置摄像头</th>
+                                        <td>1300万像素</td>
                                     </tr>
-                                        <tr>
-                                            <th>包装清单</th>
-                                            <td>主机 x 1<br>电源适配器 x 1<br>保修证书 x 1<br>SIM卡顶针 x 1<br>数据线 x 1</td>
-                                        </tr>
+                                <tr class="standard-table-group">
+                                    <th colspan="2">
+                                        系统与应用
+                                    </th>
+                                </tr>
+                                    <tr>
+                                        <th>系统版本</th>
+                                        <td>Flyme 5.1 powered by YunOS</td>
+                                    </tr>
+                                <tr class="standard-table-group">
+                                    <th colspan="2">
+                                        包装清单
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>包装清单</th>
+                                    <td>主机 x 1<br>电源适配器 x 1<br>保修证书 x 1<br>SIM卡顶针 x 1<br>数据线 x 1</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
-                        <div class="question" id="question">
-                            <div class="question-list">
-                                <h2>热门回答</h2>
-                                    @foreach($ques as $k=>$v)
-                                    <dl class="mod-item">
-                                        <dt class="vm-question">
-                                        <font color="green" size="2">[用户:{{$v->username}}]☞</font>
-                                        {{$v->question}}
-                                        </dt>
-                                        <dd class="vm-answer">
-                                        <font color="green" size="2">[客服:魅女1号]☞</font>
-                                        {{$v->answer}}
-                                        </dd>
-                                    </dl>
-                                    @endforeach
-                                    <div id="siteGotop" class="site-gotop" style="display: block;"><a target="_blank" href="/index/wenti?id={{$res->id}}" title="点我提问题(⊙o⊙)?" class="gotop-suggest"><img  width="80" height="80px" alt="" src="/go/images3/yiwen.gif"></a><div title="回到顶部" class="gotop-arrow"></div></div>
-                            </div>
+                    <div class="question" id="question">
+                        <div class="question-list">
+                            <h2>热门回答</h2>
+                                @foreach($ques as $k=>$v)
+                                <dl class="mod-item">
+                                    <dt class="vm-question">
+                                    <font color="green" size="2">[用户:{{$v->username}}]☞</font>
+                                    {{$v->question}}
+                                    </dt>
+                                    <dd class="vm-answer">
+                                    <font color="green" size="2">[客服:魅女1号]☞</font>
+                                    {{$v->answer}}
+                                    </dd>
+                                </dl>
+                                @endforeach
+                                <div id="siteGotop" class="site-gotop" style="display: block;"><a target="_blank" href="/index/wenti?id={{$res->id}}" title="点我提问题(⊙o⊙)?" class="gotop-suggest"><img  width="80" height="80px" alt="" src="/go/images3/yiwen.gif"></a><div title="回到顶部" class="gotop-arrow"></div></div>
                         </div>
+                    </div>
 
-                        </div>
+                </div>
                 </div>
             </section>
         </main>

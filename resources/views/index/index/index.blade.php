@@ -19,8 +19,7 @@
                             <div class="category-nav-children nav-wrap-col-2">
                                 <div class="nav-children-wrap">
                                     <ul class="nav-children-left">
-
-                                   @for($i = 0;$i<ceil(count($v->arr)/2);$i++)         
+                                        @for($i = 0;$i<ceil(count($v->arr)/2);$i++)         
                                         <li class="nav-children-item">
                                             <a href="/index/detail?id={{ $v->arr[$i]->id}}" data-mtype="store_index_cdh_2_1" data-mdesc="侧边导航中第2个分类第1个产品">
                                                 <img src="/go/picture/init-1x1_1.jpg"
@@ -29,11 +28,10 @@
                                                 <span>{{$v->arr[$i]->goodsname}}</span>
                                             </a>
                                         </li>
-
-                                     @endfor
+                                        @endfor
                                     </ul>
                                     <ul class="nav-children-left">
-                                     @for ($i = ceil(count($v->arr)/2); $i < ceil(count($v->arr)); $i++)
+                                        @for ($i = ceil(count($v->arr)/2); $i < ceil(count($v->arr)); $i++)
                                         <li class="nav-children-item">
                                             <a href="/index/detail?id={{$v->arr[$i]->id}}" data-mtype="store_index_cdh_2_1" data-mdesc="侧边导航中第2个分类第1个产品">
                                                 <img src="/go/picture/init-1x1_1.jpg"
@@ -45,14 +43,13 @@
                                         @endfor         
                                     </ul> 
                                 </div>
-                                    <div class="category-item-ad">
-                                        @if(isset($v->brr))                           
-                                            <a href="/index/detail?id={{ $v->brr->id}}" data-mtype="store_index_cdh_2_gg" data-mdesc="侧边导航中第2个分类广告">
-                                      
-                                                <img src="{{$v->brr->img}}" width="296" height="480"/>
-                                            </a>
-                                        @endif
-                                    </div>
+                                <div class="category-item-ad">
+                                    @if(isset($v->brr))                           
+                                        <a href="/index/detail?id={{ $v->brr->id}}" data-mtype="store_index_cdh_2_gg" data-mdesc="侧边导航中第2个分类广告">
+                                            <img src="{{$v->brr->img}}" width="296" height="480"/>
+                                        </a>
+                                    @endif
+                                </div>
                             </div>
                         </li>
                     @endforeach

@@ -26,21 +26,20 @@
             <a href="http://store.meizu.com/index.html">首页&gt;</a><a href="http://me.meizu.com/member/index">我的商城&gt;</a><a class="active" href="javascript:void()">我的订单</a>
         </div>
         <div class="main clearfix">
-            <!----------------------     左    ------------------------>
             <div class="left-nav f-fl">
                 <div class="nav-main">
                     <a class="type-title" href="javascript:;"><i class="iconfont icon-orderCenter"></i>订单中心</a>
                     <a class="ml active" href="javascript:void()">我的订单</a>
-                    <a class="ml " href="javascript:void()">我的回购单</a>
-                    <a class="ml " href="javascript:void()">我的意外保</a>
+                    <a class="ml" href="javascript:void()">我的回购单</a>
+                    <a class="ml" href="javascript:void()">我的意外保</a>
                     <a class="type-title" href="javascript:;"><i class="iconfont icon-moneyCenter"></i>资产中心</a>
-                    <a class="ml " href="">我的优惠券</a>
-                    <a class="ml " href="javascript:void()">我的红包</a>
-                    <a class="ml " href="javascript:void()">我的回购券</a>
+                    <a class="ml" href="javascript:void()">我的优惠券</a>
+                    <a class="ml" href="javascript:void()">我的红包</a>
+                    <a class="ml" href="javascript:void()">我的回购券</a>
                     <a class="type-title" href="javascript:;"><i class="iconfont icon-serverCenter"></i>服务中心</a>
-                    <a style="width: 105px" class="ml" href="">退款/退换货跟踪</a>
-                    <a class="ml " href="javascript:void()">意外保</a>
-                    <a class="ml " href="javascript:void()">以旧换新</a>
+                    <a style="width: 105px;" class="ml" href="">退款/退换货跟踪</a>
+                    <a class="ml" href="javascript:void()">意外保</a>
+                    <a class="ml" href="javascript:void()">以旧换新</a>
                 </div>
             </div>
             <div class="right-content f-fr">

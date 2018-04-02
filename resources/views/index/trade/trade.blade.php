@@ -54,7 +54,7 @@
               <span class="msg-tag" id="MzMsgTag" style="display: inline;"></span>
             </li>
             <li>
-              <a class="topbar-link" href="">我的收藏
+              <a class="topbar-link" href="/index/shou">我的收藏
                 <div class="topbar-new">new</div></a>
             </li>
             <li class="topbar-order-msg">
@@ -62,21 +62,21 @@
               <span class="msg-tag" id="MzOrderMsgTag" style="display: inline;"></span>
             </li>
             @if(!session('uid'))
-            <li class="mz_login" style="">
+            <li class="mz_login">
               <a class="topbar-link " href="/index/gologin" > 登录 </a>
             </li>
-            <li class="mz_login" style="">
+            <li class="mz_login">
               <a class="topbar-link" href="/index/register" target="">注册</a>
             </li>
             @else
-              <li class="topbar-info-member" style="">
+              <li class="topbar-info-member">
                 <a class="topbar-link" href="javascript:void(0)">
                   <span id="MzUserName" class="site-member-name">{{ session('username')}}</span></a>
                 <div class="site-member-items">
                   <a class="site-member-link" href="/index/address?id={{session('uid')}}" data-mtype="store_index_yt_9_1" data-mdesc="我的商城下拉框1">地址管理</a>
                   <a class="site-member-link" href="javascript:void()">我的回购券</a>
                   <a class="site-member-link" href="javascript:void()">问题反馈</a>
-                  <a class="site-member-link site-logout" href="" data-href="" data-mtype="store_index_yt_9_4" data-mdesc="我的商城下拉框4">退出</a>
+                  <a class="site-member-link site-logout" href="/index/indexLogout" data-href="" data-mtype="store_index_yt_9_4" data-mdesc="我的商城下拉框4">退出</a>
                 </div>
               </li>
             @endif
@@ -110,244 +110,238 @@
     </div>
     
     <div class="order">
-      <div class="mzcontainer order-header clearfix">
-        <div class="order-title">购物车</div>
-        <ul class="order-bread clearfix">
-          <li class="order-bread-module active">购物车</li>
-          <li class="order-bread-module ">确认订单</li>
-          <li class="order-bread-module">在线支付</li>
-          <li class="order-bread-module">完成</li></ul>
-      </div>
-
-        
-      <div class="mzcontainer order-product">
-      <form  action="/index/trade/order" method="post" enctype="multipart/form-data">
-        <div class="order-product-list">
-          <table cellspacing="0" cellpadding="0">
-            <thead>
-              <tr>
-                <th width="40px">选中</th>
-                <th class="order-product-table-name">
-                  <div class="order-product-supplier">
-                    <span class="order-product-supplier-name">方式</span>
-                    <div class="order-product-supplier-tips"></div></div>
-                </th>
-                <th class="order-product-table-price">单价</th>
-                <th class="order-product-table-num">数量</th>
-                <th class="order-product-table-total">小计</th>
-                <th class="order-product-table-express">操作</th></tr>
-            </thead>
-            
-            <tbody>
-              @foreach($res as $k=>$v)
-              <tr>
-              <td width="" align="center">
-                <input type="checkbox" class="chbox"  name="cart_id[]" value="{{$v['id']}}"  >
-              </td>
-              <td class="order-product-table-name">
-                <img src="{{$v['info']->img}}" class="order-product-image">
-                <div class="order-product-name">
-                  <a href="#" class="order-product-link">{{$v['goodsname']}} {{$v['type']}}
-                    <br>{{$v['color']}}
-                  </a>
-                </div>
-              </td>
-              <td class="order-product-table-price">
-                <p>
-                </p>
-                <span class="order-product-price">{{$v['price']}}</span></td>
-                <td class="order-product-table-num">
-                <input type="button" value="-" class="minus">
-                <input type="text"  step="1" min="1"  name="number[]" value="{{$v['number']}}" class="num" />
-                <input type="button" value="+" class="plus">
-              </td>
-                <td class="order-product-table-total">
-                    <p class="order-product-price red">{{$v['number']*$v['price']}}</p>
-                </td>
-                <td class="order-product-table-express" rowspan="1">
-                    @if(session('uid'))
-                        <a href="/index/trade/delete?id={{$v['id']}}">删除<a/> 
-                    @else
-                        <a href="/index/trade/delete?id={{$k}}">删除<a/>    
-                    @endif
-                    <div class="order-product-arrival"></div>
-                </td>
-              </tr>
-             @endforeach
-
-            </tbody>
-            <tfoot>
-              <tr>
-                <td align="center"></td>
-                <td colspan="5" color="red" >
-                  <div class="order-product-info">
-                    <div class="order-product-invoice clearfix">
-                      <div class="order-product-invoice-type"><!-- 全选中 -->
-                     </div>
-                      <div class="order-product-invoice-title"><!-- 发票 --></div></div>
-                    
-                  </div>
-                  <div class="order-product-total">合计：¥
-                    <span class="order-total-price red"></span></div>
-                </td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
-      </div>
-      
-       <!-- @show -->
-      
-      <div class="mzcontainer order-total clearfix">
-        <div class="order-total-content">
-          
-          <div class="order-total-line"></div>
-          <div class="order-total-row">应付：¥
-            <div class="order-total-price total"></div></div>
-         {{csrf_field()}}
-          <div class="order-total-row">
-            <div class="btn">
-              <button class="btn" id='jiesuan'>结算</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </form>
-    </div>
-       
-<div class="site-footer">
-    <div class="mzcontainer">
-        <div class="site-footer-service">
-            <ul class="clearfix">
-                <li class="service-item">
-                  <span class="service-icon service-icon-seven"></span>
-                  <p class="service-desc">
-                    <span class="service-desc-bold">7天</span>
-                    <span class="service-desc-normal">无理由退货</span>
-                  </p>
-                </li>
-                <li class="service-split-line">
-                  <span></span>
-                </li>
-                <li class="service-item">
-                  <span class="service-icon service-icon-fifty"></span>
-                  <p class="service-desc">
-                    <span class="service-desc-bold">15天</span>
-                    <span class="service-desc-normal">换货保障</span>
-                  </p>
-                </li>
-                <li class="service-split-line">
-                  <span></span>
-                </li>
-                <li class="service-item">
-                  <span class="service-icon service-icon-one"></span>
-                  <p class="service-desc">
-                    <span class="service-desc-bold">1年</span>
-                    <span class="service-desc-normal">免费保修</span>
-                  </p>
-                </li>
-                <li class="service-split-line">
-                  <span></span>
-                </li>
-                <li class="service-item">
-                  <span class="service-icon service-icon-speed"></span>
-                  <p class="service-desc">
-                    <span class="service-desc-bold">百城</span>
-                    <span class="service-desc-normal">速达</span>
-                  </p>
-                </li>
-                <li class="service-split-line">
-                  <span></span>
-                </li>
-                <li class="service-item">
-                  <span class="service-icon service-icon-by"></span>
-                  <p class="service-desc">
-                    <span class="service-desc-bold">全场</span>
-                    <span class="service-desc-normal">包邮</span>
-                  </p>
-                </li>
-                <li class="service-split-line">
-                  <span></span>
-                </li>
-                <li class="service-item">
-                  <span class="service-icon service-icon-map"></span>
-                  <p class="service-desc">
-                    <span class="service-desc-bold">2000多家</span>
-                    <span class="service-desc-normal">专卖店</span>
-                  </p>
-                </li>
+        <div class="mzcontainer order-header clearfix">
+            <div class="order-title">购物车</div>
+            <ul class="order-bread clearfix">
+                <li class="order-bread-module active">购物车</li>
+                <li class="order-bread-module ">确认订单</li>
+                <li class="order-bread-module">在线支付</li>
+                <li class="order-bread-module">完成</li>
             </ul>
         </div>
-        <div class="site-footer-navs clearfix">
-            <div class="footer-nav-item">
-                <h4 class="footer-nav-title">帮助说明</h4>
-                <ul>
-                    <li><a href="">支付方式</a></li>
-                    <li><a href="">配送说明</a></li>
-                    <li><a href="">售后服务</a></li>
-                    <li><a href="">付款帮助</a></li>
-                </ul>
-            </div>
-            <div class="footer-nav-item">
-                <h4 class="footer-nav-title">Flyme</h4>
-                <ul>
-                    <li><a href="">开放平台</a></li>
-                    <li><a href="">固件下载</a></li>
-                    <li><a href="">软件商店</a></li>
-                    <li><a href="">查找手机</a></li>
-                </ul>
-            </div>
-            <div class="footer-nav-item">
-                <h4 class="footer-nav-title">关于我们</h4>
-                <ul>
-                    <li><a href="">关于魅族</a></li>
-                    <li><a href="">加入我们</a></li>
-                    <li><a href="">联系我们</a></li>
-                    <li><a href="">法律声明</a></li>
-                </ul>
-            </div>
-            <div class="footer-nav-item">
-                <h4 class="footer-nav-title">关注我们</h4>
-                <ul>
-                    <li><a href="">新浪微博</a></li>
-                    <li><a href="">腾讯微博</a></li>
-                    <li><a href="">QQ空间</a></li>
-                    <li>
-                        <a class="meizu-footer-wechat">
-                            官方微信
-                            <img src="/order/weixin.png" alt="微信二维码">
-                        </a>
+        <div class="mzcontainer order-product">
+            <form  action="/index/trade/order" method="post" enctype="multipart/form-data">
+                <div class="order-product-list">
+                    <table cellspacing="0" cellpadding="0">
+                        <thead>
+                          <tr>
+                            <th width="40px">选中</th>
+                            <th class="order-product-table-name">
+                              <div class="order-product-supplier">
+                                <span class="order-product-supplier-name">方式</span>
+                                <div class="order-product-supplier-tips"></div></div>
+                            </th>
+                            <th class="order-product-table-price">单价</th>
+                            <th class="order-product-table-num">数量</th>
+                            <th class="order-product-table-total">小计</th>
+                            <th class="order-product-table-express">操作</th></tr>
+                        </thead>
+                        <tbody>
+                            @foreach($res as $k=>$v)
+                            <tr>
+                                <td width="" align="center">
+                                    <input type="checkbox" class="chbox" name="cart_id[]" value="{{$v['id']}}">
+                                </td>
+                                <td class="order-product-table-name">
+                                    <img src="{{$v['info']->img}}" class="order-product-image">
+                                    <div class="order-product-name">
+                                        <a href="#" class="order-product-link">{{$v['goodsname']}} {{$v['type']}}
+                                        <br>{{$v['color']}}
+                                        </a>
+                                    </div>
+                                </td>
+                                <td class="order-product-table-price">
+                                    <p> </p>
+                                    <span class="order-product-price">{{$v['price']}}</span>
+                                </td>
+                                <td class="order-product-table-num">
+                                    <input type="button" value="-" class="minus">
+                                    <input type="number" step="1" min="1" name="number[]" value="{{$v['number']}}" class="num" />
+                                    <input type="button" value="+" class="plus">
+                                </td>
+                                <td class="order-product-table-total">
+                                    <p class="order-product-price red">{{$v['number']*$v['price']}}</p>
+                                </td>
+                                <td class="order-product-table-express" rowspan="1">
+                                    @if(session('uid'))
+                                        <a href="/index/trade/delete?id={{$v['id']}}">删除</a> 
+                                    @else
+                                        <a href="/index/trade/delete?id={{$k}}">删除</a>    
+                                    @endif
+                                    <div class="order-product-arrival"></div>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td align="center"></td>
+                                <td colspan="5" color="red" >
+                                    <div class="order-product-info">
+                                        <div class="order-product-invoice clearfix">
+                                            <div class="order-product-invoice-type"></div>
+                                            <div class="order-product-invoice-title"></div>
+                                        </div>
+                                    </div>
+                                    <div class="order-product-total">合计：¥
+                                        <span class="order-total-price red"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="mzcontainer order-total clearfix">
+                    <div class="order-total-content">
+                        <div class="order-total-line"></div>
+                        <div class="order-total-row">应付：¥
+                            <div class="order-total-price total"></div>
+                        </div>
+                        {{csrf_field()}}
+                        <div class="order-total-row">
+                            <div class="btn">
+                                <button class="btn" id='jiesuan'>结算</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+       
+    <div class="site-footer">
+        <div class="mzcontainer">
+            <div class="site-footer-service">
+                <ul class="clearfix">
+                    <li class="service-item">
+                      <span class="service-icon service-icon-seven"></span>
+                      <p class="service-desc">
+                        <span class="service-desc-bold">7天</span>
+                        <span class="service-desc-normal">无理由退货</span>
+                      </p>
+                    </li>
+                    <li class="service-split-line">
+                      <span></span>
+                    </li>
+                    <li class="service-item">
+                      <span class="service-icon service-icon-fifty"></span>
+                      <p class="service-desc">
+                        <span class="service-desc-bold">15天</span>
+                        <span class="service-desc-normal">换货保障</span>
+                      </p>
+                    </li>
+                    <li class="service-split-line">
+                      <span></span>
+                    </li>
+                    <li class="service-item">
+                      <span class="service-icon service-icon-one"></span>
+                      <p class="service-desc">
+                        <span class="service-desc-bold">1年</span>
+                        <span class="service-desc-normal">免费保修</span>
+                      </p>
+                    </li>
+                    <li class="service-split-line">
+                      <span></span>
+                    </li>
+                    <li class="service-item">
+                      <span class="service-icon service-icon-speed"></span>
+                      <p class="service-desc">
+                        <span class="service-desc-bold">百城</span>
+                        <span class="service-desc-normal">速达</span>
+                      </p>
+                    </li>
+                    <li class="service-split-line">
+                      <span></span>
+                    </li>
+                    <li class="service-item">
+                      <span class="service-icon service-icon-by"></span>
+                      <p class="service-desc">
+                        <span class="service-desc-bold">全场</span>
+                        <span class="service-desc-normal">包邮</span>
+                      </p>
+                    </li>
+                    <li class="service-split-line">
+                      <span></span>
+                    </li>
+                    <li class="service-item">
+                      <span class="service-icon service-icon-map"></span>
+                      <p class="service-desc">
+                        <span class="service-desc-bold">2000多家</span>
+                        <span class="service-desc-normal">专卖店</span>
+                      </p>
                     </li>
                 </ul>
             </div>
-            <div class="footer-nav-custom">
-                <h4 class="nav-custom-title">24小时全国服务热线</h4>
-                <a href="tel:400-788-3333"><h3 class="nav-custom-number">400-788-3333</h3></a>
-                <a class="nav-custom-btn" href="javascript:void(0);" onclick="">
-                    <img src="./order/20x21xiaoshi.png" width="20" height="21">
-                    24小时在线客服
-                </a>
+            <div class="site-footer-navs clearfix">
+                <div class="footer-nav-item">
+                    <h4 class="footer-nav-title">帮助说明</h4>
+                    <ul>
+                        <li><a href="">支付方式</a></li>
+                        <li><a href="">配送说明</a></li>
+                        <li><a href="">售后服务</a></li>
+                        <li><a href="">付款帮助</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav-item">
+                    <h4 class="footer-nav-title">Flyme</h4>
+                    <ul>
+                        <li><a href="">开放平台</a></li>
+                        <li><a href="">固件下载</a></li>
+                        <li><a href="">软件商店</a></li>
+                        <li><a href="">查找手机</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav-item">
+                    <h4 class="footer-nav-title">关于我们</h4>
+                    <ul>
+                        <li><a href="">关于魅族</a></li>
+                        <li><a href="">加入我们</a></li>
+                        <li><a href="">联系我们</a></li>
+                        <li><a href="">法律声明</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav-item">
+                    <h4 class="footer-nav-title">关注我们</h4>
+                    <ul>
+                        <li><a href="">新浪微博</a></li>
+                        <li><a href="">腾讯微博</a></li>
+                        <li><a href="">QQ空间</a></li>
+                        <li>
+                            <a class="meizu-footer-wechat">
+                                官方微信
+                                <img src="/order/weixin.png" alt="微信二维码">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-nav-custom">
+                    <h4 class="nav-custom-title">24小时全国服务热线</h4>
+                    <a href="tel:400-788-3333"><h3 class="nav-custom-number">400-788-3333</h3></a>
+                    <a class="nav-custom-btn" href="javascript:void(0);" onclick="">
+                        <img src="./order/20x21xiaoshi.png" width="20" height="21">
+                        24小时在线客服
+                    </a>
+                </div>
+            </div>
+            <div class="site-footer-end">
+                <p>
+                    ©2016 Meizu Telecom Equipment Co., Ltd. All rights reserved.
+                    <a href="">备案号：粤ICP备13003602号-2</a>
+                    <a href="" hidefocus="true">经营许可证编号：粤B2-20130198</a>
+                    <a href="" hidefocus="true">营业执照</a>
+                    <a rel="nofollow" href="" hidefocus="true">
+                        <img src="./order/footer-copy-1.png">
+                    </a>
+                    <a rel="nofollow" href="" hidefocus="true">
+                        <img src="./order/footer-copy-2.png">
+                    </a>
+                    <a rel="nofollow" href="" hidefocus="true">
+                        <img src="./order/trust-icon.png">
+                    </a>
+                </p>
             </div>
         </div>
-        <div class="site-footer-end">
-            <p>
-                ©2016 Meizu Telecom Equipment Co., Ltd. All rights reserved.
-                <a href="">备案号：粤ICP备13003602号-2</a>
-                <a href="" hidefocus="true">经营许可证编号：粤B2-20130198</a>
-                <a href="" hidefocus="true">营业执照</a>
-                <a rel="nofollow" href="" hidefocus="true">
-                    <img src="./order/footer-copy-1.png">
-                </a>
-                <a rel="nofollow" href="" hidefocus="true">
-                    <img src="./order/footer-copy-2.png">
-                </a>
-                <a rel="nofollow" href="" hidefocus="true">
-                    <img src="./order/trust-icon.png">
-                </a>
-            </p>
-        </div>
     </div>
-</div>
 
     <script src="/qiantai/order/hm.js"></script>
     <script src="/qiantai/order/flow.js"></script>
