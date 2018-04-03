@@ -64,7 +64,7 @@
                 <li class="" data-bgcolor="#FFFFFF" style="background: #FFFFFF;">
                     <a class=""
                        style="width: 1920px; margin-left: -960px;"
-                       href="http://detail.meizu.com/item/meilan_max.html?rc=lb1" data-mtype="store_index_ba_1"
+                       href="/index/detail?id=1" data-mtype="store_index_ba_1"
                        data-mdesc="第1屏banner">
                         <img src="/go/LBpicture/1.jpg" width="1920" height="480"/>
                     </a>
@@ -72,7 +72,7 @@
                 <li class="" data-bgcolor="#137cf9" style="background: #137cf9;">
                     <a class=""
                        style="width: 1920px; margin-left: -960px;"
-                       href="http://hd.meizu.com/activity/meizu.html?rc=lb2" data-mtype="store_index_ba_2"
+                       href="/index/detail?id=2" data-mtype="store_index_ba_2"
                        data-mdesc="第2屏banner">
                         <img src="/go/LBpicture/2.jpg" width="1920" height="480"/>
                     </a>
@@ -80,7 +80,7 @@
                 <li class="home-slider-box" data-bgcolor="#040000" style="background: #040000;">
                     <a class=""
                        style="width: 1920px; margin-left: -960px;"
-                       href="http://hd.meizu.com/fans/misfit.html?rc=lb3" data-mtype="store_index_ba_3"
+                       href="#" data-mtype="store_index_ba_3"
                        data-mdesc="第3屏banner">
                         <img src="/go/LBpicture/3.png" width="1920" height="480"/>
                     </a>
@@ -88,7 +88,7 @@
                 <li class="home-slider-box" data-bgcolor="#121212" style="background: #121212;">
                     <a class=""
                        style="width: 1920px; margin-left: -960px;"
-                       href="http://detail.meizu.com/item/meizu_pro6.html?rc=lb4" data-mtype="store_index_ba_4"
+                       href="/index/detail?id=7" data-mtype="store_index_ba_4"
                        data-mdesc="第4屏banner">
                         <img src="/go/LBpicture/4.png" width="1920" height="480"/>
                     </a>
@@ -96,7 +96,7 @@
                 <li class="home-slider-box" data-bgcolor="#dedede" style="background: #dedede;">
                     <a class=""
                        style="width: 1240px; margin-left: -620px;"
-                       href="http://detail.meizu.com/item/shoulder_bag.html?rc=lb5" data-mtype="store_index_ba_5"
+                       href="#" data-mtype="store_index_ba_5"
                        data-mdesc="第5屏banner">
                         <img src="/go/LBpicture/5.jpg" width="1240" height="480"/>
                     </a>
